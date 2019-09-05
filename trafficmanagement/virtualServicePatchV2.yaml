@@ -1,0 +1,32 @@
+spec:
+  gateways:
+  - kyma-gateway.kyma-system.svc.cluster.local
+  hosts:
+  - canary-deployment-example.<cluster dns>
+  http:
+  - corsPolicy:
+      allowHeaders:
+      - '*'
+      allowMethods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      allowOrigin:
+      - '*'
+    match:
+    - uri:
+        regex: /.*
+    route:
+    - destination:
+        host: canary-deployment-example.canary.svc.cluster.local
+        port:
+          number: 80
+        subset: v1
+      weight: 90
+    - destination:
+        host: canary-deployment-example.canary.svc.cluster.local
+        port:
+          number: 80
+        subset: v2
+      weight: 10

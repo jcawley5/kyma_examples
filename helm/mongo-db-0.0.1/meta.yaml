@@ -1,0 +1,14 @@
+name: mongo-db
+version: 0.0.1
+id: a2257daa-0e26-4c61-a68d-8a7453c1b111
+description: "[Experimental] mongodb by Helm Broker. This is an example add-on."
+displayName: "[Experimental] mongodb"
+
+tags: database, cache, experimental
+labels:
+  experimental: "true"
+providerDisplayName: bitnami
+longDescription: "[Experimental] mongodb by Helm Broker."
+documentationURL: https://github.com/bitnami/bitnami-docker-mongodb
+supportURL: https://bitnami.com/support
+bindable: true

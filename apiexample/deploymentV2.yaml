@@ -1,0 +1,60 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: apiexample-config-v2
+data:
+  config.json: |-
+    {
+    "dbConfig": {
+        "url": "mongodb://apiexample-db-service.demo:27017/orders"
+      },
+    "version": "2"
+    }
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: apiexample-ui-v2
+  labels:
+    app: apiexample-ui
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apiexample-ui
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: apiexample-ui
+        version: v2
+    spec:
+      containers:
+      # replace the repository URL with your own repository (e.g. {DockerID}/http-db-service:0.0.x for Docker Hub).
+      - image: jcawley5/nodejs-api-example
+        imagePullPolicy: Always
+        name: apiexample-ui
+        livenessProbe:
+          httpGet:
+            path: /health/liveness
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health/readiness
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        ports:
+        - name: http
+          containerPort: 3000
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/src/app/config.json
+          subPath: config.json
+      volumes:
+      - name: config-volume
+        configMap:
+          name: apiexample-config-v2

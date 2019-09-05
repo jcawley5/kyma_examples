@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: https-echo
+  labels:
+    app: https-echo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: https-echo
+  template:
+    metadata:
+      labels:
+        app: https-echo
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - image: mendhak/http-https-echo
+        imagePullPolicy: Always
+        name: https-echo
+        ports:
+        - name: http
+          containerPort: 80
+        resources:
+          limits:
+            memory: 100Mi
+          requests:
+            memory: 32Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: https-echo
+  labels:
+    app: https-echo
+    service: https-echo
+spec:
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app:  https-echo
+---
+apiVersion: eventing.kyma-project.io/v1alpha1
+kind: Subscription
+metadata:
+  name: https-echo-subscription
+spec:
+  endpoint: http://https-echo.mocks/
+  push_request_timeout_ms: 2000
+  max_inflight: 400
+  include_subscription_name_header: true
+  event_type: order.completed
+  event_type_version: v1
+  source_id: commerce-mock

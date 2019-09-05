@@ -1,0 +1,14 @@
+apiVersion: eventing.kyma-project.io/v1alpha1
+kind: Subscription
+metadata:
+  name: apiexample-subscription
+  labels:
+    app: apiexample-ui
+spec:
+  endpoint: http://apiexample-ui-service.demo:3000/orders
+  push_request_timeout_ms: 2000
+  max_inflight: 400
+  include_subscription_name_header: true
+  event_type: order.created
+  event_type_version: v1
+  source_id: commercejc1

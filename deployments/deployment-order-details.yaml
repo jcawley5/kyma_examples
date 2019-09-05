@@ -1,0 +1,87 @@
+apiVersion: kubeless.io/v1beta1
+kind: Function
+metadata:
+  annotations:
+    function-size: S
+  creationTimestamp: 2019-06-12T19:19:40Z
+  finalizers:
+  - kubeless.io/function
+  generation: 1
+  name: order-details
+spec:
+  deployment:
+    metadata:
+      creationTimestamp: null
+    spec:
+      replicas: 1
+      strategy: {}
+      template:
+        metadata:
+          creationTimestamp: null
+          labels: {}
+        spec:
+          containers:
+          - name: order-details
+            resources:
+              limits:
+                cpu: 100m
+                memory: 128Mi
+              requests:
+                cpu: 100m
+                memory: 100Mi
+    status: {}
+  deps: |-
+    {
+        "dependencies": {
+            "request": "^2.85.0",
+            "axios": "^0.18.0",
+            "json-pretty-html": "1.1.6"
+          }
+    }
+  function: "var axios = require('axios');\nvar prettyHtml = require('json-pretty-html').default;\n\nmodule.exports
+    = { main: async function (event, context) {\n\n    console.log(\"order-details\");\n
+    \   \n    var request = event.extensions.request;\n    var orderNum = request.query.orderNum;\n
+    \   \n    console.log(orderNum);\n    \n    if(orderNum){\n        var orderResult
+    = await getOrderDetails(orderNum);\n        return prettyHtml(orderResult);\n
+    \   }else{\n        return \"no orderNum was received ....\";\n    }\n\n}}\n\n\nasync
+    function getOrderDetails(code) {\n    const ordersUrl = process.env.GATEWAY_URL
+    + \"/electronics/orders/\" + code;\n    console.log(\"orderUrl: %s\", ordersUrl);\n
+    \   const response = await axios.get(ordersUrl);\n    console.log(JSON.stringify(response.data,
+    null, 2));\n    return response.data;\n}\n"
+  function-content-type: text
+  handler: handler.main
+  horizontalPodAutoscaler:
+    metadata:
+      creationTimestamp: null
+      labels:
+        function: order-details
+      name: order-details
+    spec:
+      maxReplicas: 2
+      metrics:
+      - resource:
+          name: cpu
+          targetAverageUtilization: 50
+        type: Resource
+      minReplicas: 1
+      scaleTargetRef:
+        apiVersion: apps/v1beta1
+        kind: Deployment
+        name: order-details
+    status:
+      conditions: null
+      currentMetrics: null
+      currentReplicas: 0
+      desiredReplicas: 0
+  runtime: nodejs8
+  service:
+    ports:
+    - name: http-function-port
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      created-by: kubeless
+      function: order-details
+  timeout: ""
+  topic: http

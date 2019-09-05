@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apiexample-ui-service
+  labels:
+    app: apiexample-ui
+spec:
+  ports:
+  - name: http
+    port: 3000
+  selector:
+    app: apiexample-ui
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: apiexample-config-v1
+data:
+  config.json: |-
+    {
+    "dbConfig": {
+        "url": "mongodb://apiexample-db-service.demo:27017/orders"
+      },
+    "version": "1"
+    }
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: apiexample-ui-v1
+  labels:
+    app: apiexample-ui
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apiexample-ui
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: apiexample-ui
+        version: v1
+    spec:
+      containers:
+      # replace the repository URL with your own repository (e.g. {DockerID}/http-db-service:0.0.x for Docker Hub).
+      - image: jcawley5/nodejs-api-example
+        imagePullPolicy: Always
+        name: apiexample-ui
+        livenessProbe:
+          httpGet:
+            path: /health/liveness
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health/readiness
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        ports:
+        - name: http
+          containerPort: 3000
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/src/app/config.json
+          subPath: config.json
+      volumes:
+      - name: config-volume
+        configMap:
+          name: apiexample-config-v1
+---
+apiVersion: gateway.kyma-project.io/v1alpha2
+kind: Api
+metadata:
+  name: apiexample-ui-api
+  labels:
+    app: apiexample-ui
+spec:
+  hostname: apiexample-ui
+  service:
+    name: apiexample-ui-service
+    port: 3000

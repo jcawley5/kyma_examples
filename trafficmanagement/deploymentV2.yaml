@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: canary-deployment-example-v2
+  labels:
+    app: canary-deployment-example
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: canary-deployment-example
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: canary-deployment-example
+        version: v2
+    spec:
+      containers:
+      # replace the repository URL with your own repository (e.g. {DockerID}/http-db-service:0.0.x for Docker Hub).
+      - image: jcawley5/nginx-hello-v2
+        imagePullPolicy: Always
+        name: canary-deployment-example
+        ports:
+        - name: http
+          containerPort: 80

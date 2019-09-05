@@ -1,0 +1,42 @@
+spec:
+  gateways:
+  - kyma-gateway.kyma-system.svc.cluster.local
+  hosts:
+  - apiexample-ui.<cluster dns>
+  http:
+  - match:
+    - headers:
+        x-app-version:
+          exact: v1
+    route:
+    - destination:
+        host: apiexample-ui-service.demo.svc.cluster.local
+        port:
+          number: 3000
+        subset: v1
+    corsPolicy:
+      allowHeaders:
+      - '*'
+      allowMethods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      allowOrigin:
+      - '*'
+  - route:
+    - destination:
+        host: apiexample-ui-service.demo.svc.cluster.local
+        port:
+          number: 3000
+        subset: v2
+    corsPolicy:
+      allowHeaders:
+      - '*'
+      allowMethods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      allowOrigin:
+      - '*'

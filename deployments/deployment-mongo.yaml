@@ -1,0 +1,27 @@
+apiVersion: servicecatalog.kyma-project.io/v1alpha1
+kind: ServiceBindingUsage
+metadata:
+ name: mongodb-binding-usage
+ "ownerReferences": [
+    {
+       "apiVersion": "servicecatalog.k8s.io/v1beta1",
+       "kind": "ServiceBinding",
+       "name": "mongodb-instance-binding",
+       "uid": "65cc140a-db6a-11e8-abe7-0242ac110023"
+    }
+ ]
+spec:
+ serviceBindingRef:
+   name: mongodb-instance-binding
+ usedBy:
+   kind: deployment
+   name: first-mongo-mongodb
+ parameters:
+   envPrefix:
+     name: "pico-bello"
+status:
+    conditions:
+    - lastTransitionTime: 2018-06-26T10:52:05Z
+      lastUpdateTime: 2018-06-26T10:52:05Z
+      status: "True"
+      type: Ready

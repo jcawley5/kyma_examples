@@ -1,0 +1,10 @@
+    
+docs:
+  - template:
+      displayName: "Documentation for mongo testing addon"
+      description: "Overall documentation"
+      sources:
+        - type: markdown
+          name: markdown-files
+          mode: package
+          filter: docs/

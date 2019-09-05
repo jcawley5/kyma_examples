@@ -1,0 +1,7 @@
+{
+    "dbConfig": {
+        "url": "mongodb://localhost:27017/orders"
+      },
+    
+    "version": 2
+}
