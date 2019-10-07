@@ -35,8 +35,8 @@
   "required": [
     "system_url",
     "x-ApplicationKey",
-    "username",
-    "password",
+    "basic_user",
+    "basic_password",
     "application_name"
   ]
 }
