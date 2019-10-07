@@ -1,7 +1,7 @@
 name: fieldglass-connector
 version: 0.1.0
 description: "Enables the preview integration of SAP Fieldglass. It is not recommended for production scenarios."
-id: faebbe12-0a84-11e3-ab17-d663bd873e59
+id: facbbe12-0a84-11e3-ab17-d663be873e59
 displayName: "[Preview] SAP Fieldglass - Connector"
 tags: preview,fieldglass,connector
 labels:
