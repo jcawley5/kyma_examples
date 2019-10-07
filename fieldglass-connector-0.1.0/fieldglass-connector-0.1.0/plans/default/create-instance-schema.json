@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "system_url": {
+      "type": "string",
+      "title": "System URL",
+      "description": "System URL",
+      "format": "string"
+    },
+    "x-ApplicationKey": {
+      "type": "string",
+      "title": "Application Key",
+      "description": "Application Key",
+      "format": "password"
+    },
+    "basic_user": {
+      "type": "string",
+      "title": "Username",
+      "description": "Username for basic authentication",
+      "format": "string"
+    },
+    "basic_password": {
+      "type": "string",
+      "title": "Password",
+      "description": "Password for basic authentication",
+      "format": "password"
+    },
+    "application_name": {
+      "type": "string",
+      "title": "Application Name",
+      "description": "The name of the Kyma Application where the APIs should be registered for consumption"
+    }
+  },
+  "required": [
+    "system_url",
+    "x-ApplicationKey",
+    "username",
+    "password",
+    "application_name"
+  ]
+}

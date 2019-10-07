@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Service to expose SAP Fieldglass APIs",
+    "version": "1.0.0",
+    "title": "SAP Fieldglass APIs"
+  },
+  "tags": [
+    {
+      "name": "sapfieldglass-jobseeker-api",
+      "description": "SAP Fieldglass APIs",
+      "externalDocs": {
+        "description": "API to submit posting to jobseeker",
+        "url": "https://<SAP Fieldglass environment URL>/api/vc/jobseeker"
+      }
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "API to Award custom actions points to Single User"
+        ],
+        "summary": "API to submit application posting to Job Seeker",
+        "description": "API to submit application posting to Job Seeker",
+        "operationId": "jobseeker",
+        "parameters": [
+          {
+            "name": "HumanResource['@xmlns']",
+            "in": "path",
+            "description": "Defaults to “jobSeeker”.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "500": {
+            "description": "The server encountered an error processing the request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemas": {
+      "authorization": {
+        "type": "string",
+        "name": "bearer [access token]",
+        "in": "header"
+      },
+      "x-ApplicationKey":{
+         "type": "string",
+        "name": "[server provided key]",
+        "in": "header"
+      }
+    }
+  }
+}

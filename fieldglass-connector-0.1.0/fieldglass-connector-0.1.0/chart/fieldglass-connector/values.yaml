@@ -1,0 +1,8 @@
+# Default values for annexcloud-connector.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+oauthServerName: oauth2server
+oauthServerHost: auth
+apiRegistrationJobName: api-registration-job
+namespace: kyma-integration

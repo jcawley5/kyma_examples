@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "bundle.fullname" . }}
+    component: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
+data:
+  SYSTEM_URL	: {{ .Values.system_url }}
+  BASIC_USER: {{ .Values.basic_user | quote }}
+  BASIC_PASSWORD: {{ .Values.password | quote }}
+  APPLICATION_NAME: {{ .Values.application_name | quote }}
+  PROVIDER_NAME: SAP
+  PRODUCT_NAME: SAP Fieldglass Cloud
+  APP_KIND: rest-with-apikey
+  API_DESCRIPTION: "APIs for SAP Fieldglass"
+  API_SPECIFICATION_URL: https://raw.githubusercontent.com/jcawley5/fieldglass-connector/master/api-docs/apis.json
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}-api
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "bundle.fullname" . }}
+    component: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
+data:
+  headers.json: |-
+    {
+      "x-ApplicationKey": {{ .Values.x-ApplicationKey | quote }},
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": {{ Basic {{.Values.basic_user}}:{{.Values.password}} | b64enc }}
+    }
+  params.json: |-
+    {
+    }
+  events.json: |-
+    {
+      "name": "SAP Fieldglass Business Events",
+      "provider": "SAP Fieldglass",
+      "description": "SAP Fieldglass Business Events",
+      "events": {
+        "spec": {
+          "asyncapi": "1.0.0",
+          "info": {
+            "title": "SAP Fieldglass Business Events",
+            "version": "1.0.0",
+            "description": "SAP Fieldglass Business Events"
+          },
+          "topics": {
+            "fg.jobposting.v1": {
+              "subscribe": {
+                "summary": "Job Posting",
+                "payload": {
+                  "type": "object",
+                  "required": [],
+                  "example": {},
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
