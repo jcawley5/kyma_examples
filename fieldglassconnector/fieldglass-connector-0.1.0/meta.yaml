@@ -1,7 +1,7 @@
 name: fieldglass-connector
 version: 0.1.0
 description: "Enables the preview integration of SAP Fieldglass. It is not recommended for production scenarios."
-id: facbbe12-0a84-11e3-ab17-d663be873e59
+id: facbbe92-0a84-16e3-ab17-d693be873g59
 displayName: "[Preview] SAP Fieldglass - Connector"
 tags: preview,fieldglass,connector
 labels:
@@ -10,5 +10,5 @@ providerDisplayName: SAP
 longDescription: "Integrates SAP Fieldglass in preview mode by registering its REST APIs in an existing Application and enables consuming the APIs from a lambda or microservice. It is not recommended for production use."
 documentationURL: https://www.fieldglass.com/
 bindable: false
-provisionOnlyOnce: false
-imageUrl: https://github.com/jcawley5/sap-fieldglass-connector/raw/master/logos/fieldglass.png
+provisionOnlyOnce: true
+imageUrl: https://raw.githubusercontent.com/jcawley5/kyma_examples/master/fieldglass-connector/logos/fieldglass.jpg
