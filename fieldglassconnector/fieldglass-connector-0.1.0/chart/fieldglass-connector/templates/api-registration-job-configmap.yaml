@@ -15,7 +15,7 @@ data:
   PRODUCT_NAME: "SAP Fieldglass Cloud"
   APP_KIND: rest-with-apikey
   API_DESCRIPTION: "APIs for SAP Fieldglass"
-  OAUTH_URL: {{ .Values.system_url }} "/oauth2/v2.0/token"
+  OAUTH_URL: {{ .Values.system_url }} /oauth2/v2.0/token
   CLIENT_ID: "dummy"
   CLIENT_SECRET: "dummy"
   API_SPECIFICATION_URL: "https://raw.githubusercontent.com/jcawley5/kyma_examples/master/fieldglassconnector/api-docs/apis.json"
