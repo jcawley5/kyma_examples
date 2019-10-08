@@ -31,7 +31,7 @@ data:
     {
       "x-ApplicationKey": {{ .Values.appKey | quote }},
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": {{ template "basicAuthHeader" . | quote}}
+      "Authorization": {{ template "basicAuthHeader" . }}
     }
   params.json: |-
     {
