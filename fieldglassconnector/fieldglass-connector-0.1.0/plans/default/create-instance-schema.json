@@ -5,7 +5,7 @@
     "system_url": {
       "type": "string",
       "title": "System URL",
-      "description": "System URL",
+      "description": "System URL api endpoint https://xcore1.fgvms.com/api",
       "format": "string"
     },
     "appKey": {

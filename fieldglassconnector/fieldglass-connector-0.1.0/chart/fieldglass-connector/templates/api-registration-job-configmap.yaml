@@ -16,9 +16,9 @@ data:
   APP_KIND: rest-with-apikey
   API_DESCRIPTION: "APIs for SAP Fieldglass"
   API_SPECIFICATION_URL: https://raw.githubusercontent.com/jcawley5/kyma_examples/master/fieldglassconnector/api-docs/apis.json
-  OAUTH_URL: {{ .Values.system_url }}/api/oauth2/v2.0/token
-  CLIENT_ID: "dummy"
-  CLIENT_SECRET: "dummy"
+  OAUTH_URL: {{ .Values.system_url }}/oauth2/v2.0/token
+  CLIENT_ID: {{ .Values.basic_user | quote }}
+  CLIENT_SECRET: {{ .Values.basic_password | quote }}
 ---
 apiVersion: v1
 kind: ConfigMap
