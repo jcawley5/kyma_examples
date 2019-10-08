@@ -37,7 +37,8 @@ data:
       "grant_type": "client_credentials",
       "response_type": "token"
     }
-    apis.json: |-
+  apis.json |-
+  [
     {
       "openapi": "3.0.0",
       "info": {
@@ -93,6 +94,7 @@ data:
         }
       }
     }
+  ]
   events.json: |-
     {
       "name": "SAP Fieldglass Business Events",
