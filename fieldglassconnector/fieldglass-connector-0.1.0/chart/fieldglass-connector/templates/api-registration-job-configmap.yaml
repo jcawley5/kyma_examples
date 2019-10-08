@@ -18,7 +18,7 @@ data:
   OAUTH_URL: "/oauth2/v2.0/token"
   CLIENT_ID: "dummy"
   CLIENT_SECRET: "dummy"
-  API_SPECIFICATION_URL: "https://raw.githubusercontent.com/jcawley5/fieldglass-connector/master/api-docs/apis.json"
+  API_SPECIFICATION_URL: "https://raw.githubusercontent.com/jcawley5/kyma_examples/master/fieldglassconnector/api-docs/apis.json"
 ---
 apiVersion: v1
 kind: ConfigMap
