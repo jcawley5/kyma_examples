@@ -15,6 +15,9 @@ data:
   PRODUCT_NAME: SAP Fieldglass Cloud
   APP_KIND: rest-with-apikey
   API_DESCRIPTION: "APIs for SAP Fieldglass"
+  OAUTH_URL: /oauth2/v2.0/token
+  CLIENT_ID: dummy
+  CLIENT_SECRET: dummy
   API_SPECIFICATION_URL: https://raw.githubusercontent.com/jcawley5/fieldglass-connector/master/api-docs/apis.json
 ---
 apiVersion: v1
@@ -34,6 +37,8 @@ data:
     }
   params.json: |-
     {
+      "grant_type": "client_credentials",
+      "response_type": "token"
     }
   events.json: |-
     {
