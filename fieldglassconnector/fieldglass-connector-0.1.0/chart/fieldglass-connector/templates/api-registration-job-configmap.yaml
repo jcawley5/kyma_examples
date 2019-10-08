@@ -8,14 +8,12 @@ metadata:
     component: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
 data:
   SYSTEM_URL	: {{ .Values.system_url }}
-  BASIC_USER: {{ .Values.basic_user | quote }}
-  BASIC_PASSWORD: {{ .Values.password | quote }}
   APPLICATION_NAME: {{ .Values.application_name | quote }}
   PROVIDER_NAME: "SAP"
   PRODUCT_NAME: "SAP Fieldglass Cloud"
   APP_KIND: rest-with-apikey
   API_DESCRIPTION: "APIs for SAP Fieldglass"
-  OAUTH_URL: "/oauth2/v2.0/token"
+  OAUTH_URL: {{ .Values.system_url }} "/oauth2/v2.0/token"
   CLIENT_ID: "dummy"
   CLIENT_SECRET: "dummy"
   API_SPECIFICATION_URL: "https://raw.githubusercontent.com/jcawley5/kyma_examples/master/fieldglassconnector/api-docs/apis.json"
@@ -31,9 +29,9 @@ metadata:
 data:
   headers.json: |-
     {
-      "x-ApplicationKey": {{ index .Values "x-ApplicationKey" | quote }},
+      "x-ApplicationKey": {{ .Values.appKey | quote }},
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": {{ template "basicAuthHeader" . }}
+      "Authorization": {{ template "basicAuthHeader" . | quote}}
     }
   params.json: |-
     {

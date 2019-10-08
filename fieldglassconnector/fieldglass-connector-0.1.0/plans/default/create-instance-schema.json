@@ -8,7 +8,7 @@
       "description": "System URL",
       "format": "string"
     },
-    "x-ApplicationKey": {
+    "appKey": {
       "type": "string",
       "title": "Application Key",
       "description": "Application Key",
@@ -34,7 +34,7 @@
   },
   "required": [
     "system_url",
-    "x-ApplicationKey",
+    "appKey",
     "basic_user",
     "basic_password",
     "application_name"

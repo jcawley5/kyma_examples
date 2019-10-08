@@ -8,7 +8,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 
 {{- define "basicAuthHeader" }}
-{{- printf "{\"Basic\": \"%s\" }" (printf "%s:%s" .Values.basic_user .Values.password | b64enc) }}
+{{- printf "{\"Basic\": \"%s\" }" (printf "%s:%s" .Values.basic_user .Values.basic_password | b64enc) }}
 {{- end }}
 
 
