@@ -1,34 +1,32 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Service to expose SAP Fieldglass APIs",
+    "description": "Service to expose Fieldglass APIs",
     "version": "1.0.0",
-    "title": "SAP Fieldglass APIs"
+    "title": "Fieldglass APIs"
   },
   "tags": [
     {
-      "name": "sapfieldglass-jobseeker-api",
-      "description": "SAP Fieldglass APIs",
+      "name": "fieldglass-api",
+      "description": "Fieldglass APIs",
       "externalDocs": {
-        "description": "API to submit posting to jobseeker",
-        "url": "https://<SAP Fieldglass environment URL>/api/vc/jobseeker"
+        "description": "API to submit application posting to Job Seeker",
+        "url": "https://xcore1.fgvms.com/api/vc/connector/jobseeker"
       }
     }
   ],
   "paths": {
     "/": {
       "post": {
-        "tags": [
-          "API to Award custom actions points to Single User"
-        ],
+        "tags": ["API to submit application posting to Job Seeker"],
         "summary": "API to submit application posting to Job Seeker",
         "description": "API to submit application posting to Job Seeker",
         "operationId": "jobseeker",
         "parameters": [
           {
-            "name": "HumanResource['@xmlns']",
+            "name": "posting",
             "in": "path",
-            "description": "Defaults to “jobSeeker”.",
+            "description": "return results in JSON format",
             "required": true,
             "schema": {
               "type": "string"
@@ -47,16 +45,10 @@
     }
   },
   "components": {
-    "securitySchemas": {
-      "authorization": {
-        "type": "string",
-        "name": "bearer [access token]",
-        "in": "header"
-      },
-      "x-ApplicationKey":{
-         "type": "string",
-        "name": "[server provided key]",
-        "in": "header"
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
       }
     }
   }
