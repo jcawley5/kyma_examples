@@ -68,14 +68,23 @@ func main() {
 	http.HandleFunc("/sendPetCreatedEvent", kd.sendPetCreatedEvent)
 	http.HandleFunc("/apiEndpointPrint", kd.apiEndpointPrint)
 
-	fmt.Println("Server is up and listening on port: 443.")
+	fmt.Println("Server is up and listening on port: 443 and 80")
 	kd.setAppPaths()
 
-	err := http.ListenAndServeTLS(":443", kd.AppPath+"/server/server.crt", kd.AppPath+"/server/server.key", nil)
+	go func() {
+		errHttp := http.ListenAndServe(":80", nil)
 
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		if errHttp != nil {
+			log.Fatal("ListenAndServe: ", errHttp)
+		}
+	}()
+
+	errHttps := http.ListenAndServeTLS(":443", kd.AppPath+"/server/server.crt", kd.AppPath+"/server/server.key", nil)
+
+	if errHttps != nil {
+		log.Fatal("ListenAndServeTLS: ", errHttps)
 	}
+
 }
 
 func (kd *kymaDetails) apiEndpointPrint(response http.ResponseWriter, request *http.Request) {
