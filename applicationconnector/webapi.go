@@ -16,6 +16,7 @@ import (
 	"log"
 	"math/big"
 	"net/http"
+	"net/http/httputil"
 	"os"
 	"path"
 	"runtime"
@@ -65,6 +66,7 @@ func main() {
 	http.HandleFunc("/getKymaMetedata", kd.getKymaMetedata)
 	http.HandleFunc("/sendAPIMetadata", kd.sendAPIMetadata)
 	http.HandleFunc("/sendPetCreatedEvent", kd.sendPetCreatedEvent)
+	http.HandleFunc("/apiEndpointPrint", kd.apiEndpointPrint)
 
 	fmt.Println("Server is up and listening on port: 443.")
 	kd.setAppPaths()
@@ -74,6 +76,15 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
+}
+
+func (kd *kymaDetails) apiEndpointPrint(response http.ResponseWriter, request *http.Request) {
+	// Save a copy of this request for debugging.
+	requestDump, err := httputil.DumpRequest(request, true)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(requestDump))
 }
 
 func (kd *kymaDetails) index(response http.ResponseWriter, request *http.Request) {
