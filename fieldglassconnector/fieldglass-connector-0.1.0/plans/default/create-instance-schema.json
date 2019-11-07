@@ -6,9 +6,15 @@
       "type": "string",
       "title": "Application Name",
       "description": "The name of the Kyma Application where the APIs should be registered for consumption"
+    },
+    "cluster_domain": {
+      "type": "string",
+      "title": "Cluster Domain",
+      "description": "The domain of the cluster. For example, `demo.cluster.extend.cx.cloud.sap`"
     }
   },
   "required": [
-    "application_name"
+    "application_name",
+    "cluster_domain"
   ]
 }
