@@ -7,6 +7,14 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- printf "%s" $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{- define "oauth_server" -}}
+{{- printf "%s.%s" .Values.oauthServerHost .Values.cluster_domain | trimSuffix " " | quote -}}
+{{- end -}}
+
+{{- define "mqtt_server" -}}
+{{- printf "%s.%s" .Values.mqttServerHost .Values.cluster_domain | trimSuffix " " | quote -}}
+{{- end -}}
+
 {{- define "basicAuthHeader" }}
 {{- printf "{\"Basic\": \"%s\" }" (printf "%s:%s" .Values.basic_user .Values.basic_password | b64enc) }}
 {{- end }}

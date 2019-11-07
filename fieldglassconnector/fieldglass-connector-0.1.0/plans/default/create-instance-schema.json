@@ -2,30 +2,6 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "system_url": {
-      "type": "string",
-      "title": "System URL",
-      "description": "System URL api endpoint https://xcore1.fgvms.com/api",
-      "format": "string"
-    },
-    "appKey": {
-      "type": "string",
-      "title": "Application Key",
-      "description": "Application Key",
-      "format": "password"
-    },
-    "basic_user": {
-      "type": "string",
-      "title": "Username",
-      "description": "Username for basic authentication",
-      "format": "string"
-    },
-    "basic_password": {
-      "type": "string",
-      "title": "Password",
-      "description": "Password for basic authentication",
-      "format": "password"
-    },
     "application_name": {
       "type": "string",
       "title": "Application Name",
@@ -33,10 +9,6 @@
     }
   },
   "required": [
-    "system_url",
-    "appKey",
-    "basic_user",
-    "basic_password",
     "application_name"
   ]
 }
