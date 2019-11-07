@@ -4,3 +4,5 @@
 
 apiRegistrationJobName: api-registration-job
 namespace: kyma-integration
+mqttServerHost: mqtt
+mqttEventBridgeName: mqtt-event-bridge

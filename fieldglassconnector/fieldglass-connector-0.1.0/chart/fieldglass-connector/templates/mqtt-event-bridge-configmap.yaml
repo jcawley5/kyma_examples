@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bundle.fullname" . }}-{{ .Values.mqttEventBridgeName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "bundle.fullname" . }}
+    component: {{ template "bundle.fullname" . }}-{{ .Values.mqttEventBridgeName }}
+data:
+  APPLICATION_NAME: {{ .Values.application_name | quote }}
