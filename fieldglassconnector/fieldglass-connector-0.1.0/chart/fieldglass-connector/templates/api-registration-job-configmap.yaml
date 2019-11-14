@@ -20,12 +20,6 @@ metadata:
     app: {{ template "bundle.fullname" . }}
     component: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
 data:
-  headers.json: |-
-    {
-    }
-  params.json: |-
-    {
-    }
   events.json: |-
     {
       "name": "SAP Fieldglass Business Events",

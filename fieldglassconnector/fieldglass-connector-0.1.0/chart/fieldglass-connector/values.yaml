@@ -3,6 +3,6 @@
 # Declare variables to be passed into your templates.
 
 namespace: kyma-integration
-mqttServerHost: mqtt
+gatewayServerHost: fgeventgateway
 apiRegistrationJobName: api-registration-job
-mqttEventBridgeName: mqtt-event-bridge
+eventBridgeName: fg-event-bridge

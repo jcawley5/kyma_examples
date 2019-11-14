@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "bundle.fullname" . }}
+    component: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
+data:
+  SYSTEM_URL	: {{ .Values.system_url }}
+  BASIC_USER: {{ .Values.basic_user | quote }}
+  BASIC_PASSWORD: {{ .Values.password | quote }}
+  APPLICATION_NAME: {{ .Values.application_name | quote }}
+  PROVIDER_NAME: SAP
+  PRODUCT_NAME: SAP Fieldglass Cloud
+  APP_KIND: rest-with-apikey
+  API_DESCRIPTION: "APIs for SAP Fieldglass"
+  API_SPECIFICATION_URL: https://raw.githubusercontent.com/jcawley5/fieldglass-connector/master/api-docs/apis.json
+  EVENT_SPECIFICATION_URL: https://raw.githubusercontent.com/jcawley5/fieldglass-connector/master/api-docs/events.json
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}-api
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "bundle.fullname" . }}
+    component: {{ template "bundle.fullname" . }}-{{ .Values.apiRegistrationJobName }}
+data:
+  params.json: |-
+    {
+      "x-ApplicationKey": {{ .Values.x-ApplicationKey | quote }}
+    }
+  apis.json: |-
+    []
