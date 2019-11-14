@@ -34,7 +34,7 @@ data:
             "description": "SAP Fieldglass Business Events"
           },
           "topics": {
-            "fg.jobposting.v1": {
+            "jobPosting.v1": {
               "subscribe": {
                 "summary": "Job Posting",
                 "payload": {
