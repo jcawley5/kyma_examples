@@ -13,7 +13,7 @@
       "description": "Username for event processing webhook"
     },
     "password": {
-      "type": "string",
+      "type": "password",
       "title": "Password",
       "description": "Password for event processing webhook"
     },
