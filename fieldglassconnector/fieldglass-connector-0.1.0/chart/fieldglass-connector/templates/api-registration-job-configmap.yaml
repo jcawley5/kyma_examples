@@ -38,10 +38,2230 @@ data:
               "subscribe": {
                 "summary": "Job Posting",
                 "payload": {
+                  {
+                  "definitions": {},
+                  "$schema": "http://json-schema.org/draft-07/schema#",
+                  "$id": "http://example.com/root.json",
                   "type": "object",
-                  "required": [],
-                  "example": {},
-                  "properties": {}
+                  "title": "The Root Schema",
+                  "required": [
+                    "StaffingOrder"
+                  ],
+                  "properties": {
+                    "StaffingOrder": {
+                      "$id": "#/properties/StaffingOrder",
+                      "type": "object",
+                      "title": "The Staffingorder Schema",
+                      "required": [
+                        "@xmlns",
+                        "@xmlns:xsi",
+                        "@xsi:schemaLocation",
+                        "OrderId",
+                        "ReferenceInformation",
+                        "BusinessUnit",
+                        "ClosedReasonName",
+                        "OrderClassification",
+                        "Comments",
+                        "OrderContact",
+                        "RequiredResponseDate",
+                        "PositionQuantity",
+                        "MaxSubmissionsAllowed",
+                        "CanSubmitJobSeeker",
+                        "StaffingPosition"
+                      ],
+                      "properties": {
+                        "@xmlns": {
+                          "$id": "#/properties/StaffingOrder/properties/@xmlns",
+                          "type": "string",
+                          "title": "The @xmlns Schema",
+                          "default": "",
+                          "examples": [
+                            "jobPosting"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "@xmlns:xsi": {
+                          "$id": "#/properties/StaffingOrder/properties/@xmlns:xsi",
+                          "type": "string",
+                          "title": "The @xmlns:xsi Schema",
+                          "default": "",
+                          "examples": [
+                            "http://www.w3.org/2001/XMLSchema-instance"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "@xsi:schemaLocation": {
+                          "$id": "#/properties/StaffingOrder/properties/@xsi:schemaLocation",
+                          "type": "string",
+                          "title": "The @xsi:schemalocation Schema",
+                          "default": "",
+                          "examples": [
+                            "jobPosting https://xcore1.fgvms.com/schema/InSiteJobPostingV2.xsd"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "OrderId": {
+                          "$id": "#/properties/StaffingOrder/properties/OrderId",
+                          "type": "object",
+                          "title": "The Orderid Schema",
+                          "required": [
+                            "@validFrom",
+                            "@validTo",
+                            "IdValue",
+                            "Status"
+                          ],
+                          "properties": {
+                            "@validFrom": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderId/properties/@validFrom",
+                              "type": "string",
+                              "title": "The @validfrom Schema",
+                              "default": "",
+                              "examples": [
+                                "2019-10-30"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "@validTo": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderId/properties/@validTo",
+                              "type": "string",
+                              "title": "The @validto Schema",
+                              "default": "",
+                              "examples": [
+                                "2019-11-15"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "IdValue": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderId/properties/IdValue",
+                              "type": "string",
+                              "title": "The Idvalue Schema",
+                              "default": "",
+                              "examples": [
+                                "GEBOJP00000025"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "Status": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderId/properties/Status",
+                              "type": "string",
+                              "title": "The Status Schema",
+                              "default": "",
+                              "examples": [
+                                "Submitted"
+                              ],
+                              "pattern": "^(.*)$"
+                            }
+                          }
+                        },
+                        "ReferenceInformation": {
+                          "$id": "#/properties/StaffingOrder/properties/ReferenceInformation",
+                          "type": "object",
+                          "title": "The Referenceinformation Schema",
+                          "required": [
+                            "StaffingSupplierId",
+                            "StaffingCustomerId"
+                          ],
+                          "properties": {
+                            "StaffingSupplierId": {
+                              "$id": "#/properties/StaffingOrder/properties/ReferenceInformation/properties/StaffingSupplierId",
+                              "type": "object",
+                              "title": "The Staffingsupplierid Schema",
+                              "required": [
+                                "IdValue"
+                              ],
+                              "properties": {
+                                "IdValue": {
+                                  "$id": "#/properties/StaffingOrder/properties/ReferenceInformation/properties/StaffingSupplierId/properties/IdValue",
+                                  "type": "string",
+                                  "title": "The Idvalue Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "E009"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "StaffingCustomerId": {
+                              "$id": "#/properties/StaffingOrder/properties/ReferenceInformation/properties/StaffingCustomerId",
+                              "type": "object",
+                              "title": "The Staffingcustomerid Schema",
+                              "required": [
+                                "IdValue"
+                              ],
+                              "properties": {
+                                "IdValue": {
+                                  "$id": "#/properties/StaffingOrder/properties/ReferenceInformation/properties/StaffingCustomerId/properties/IdValue",
+                                  "type": "string",
+                                  "title": "The Idvalue Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "GEBO"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "BusinessUnit": {
+                          "$id": "#/properties/StaffingOrder/properties/BusinessUnit",
+                          "type": "string",
+                          "title": "The Businessunit Schema",
+                          "default": "",
+                          "examples": [
+                            "GEBO"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "ClosedReasonName": {
+                          "$id": "#/properties/StaffingOrder/properties/ClosedReasonName",
+                          "type": "null",
+                          "title": "The Closedreasonname Schema",
+                          "default": null,
+                          "examples": [
+                            null
+                          ]
+                        },
+                        "OrderClassification": {
+                          "$id": "#/properties/StaffingOrder/properties/OrderClassification",
+                          "type": "object",
+                          "title": "The Orderclassification Schema",
+                          "required": [
+                            "@orderType",
+                            "@orderStatus"
+                          ],
+                          "properties": {
+                            "@orderType": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderClassification/properties/@orderType",
+                              "type": "string",
+                              "title": "The @ordertype Schema",
+                              "default": "",
+                              "examples": [
+                                "Accountant - US"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "@orderStatus": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderClassification/properties/@orderStatus",
+                              "type": "string",
+                              "title": "The @orderstatus Schema",
+                              "default": "",
+                              "examples": [
+                                "new"
+                              ],
+                              "pattern": "^(.*)$"
+                            }
+                          }
+                        },
+                        "Comments": {
+                          "$id": "#/properties/StaffingOrder/properties/Comments",
+                          "type": "object",
+                          "title": "The Comments Schema",
+                          "required": [
+                            "Comment",
+                            "CreatorName",
+                            "CreateTime"
+                          ],
+                          "properties": {
+                            "Comment": {
+                              "$id": "#/properties/StaffingOrder/properties/Comments/properties/Comment",
+                              "type": "null",
+                              "title": "The Comment Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "CreatorName": {
+                              "$id": "#/properties/StaffingOrder/properties/Comments/properties/CreatorName",
+                              "type": "null",
+                              "title": "The Creatorname Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "CreateTime": {
+                              "$id": "#/properties/StaffingOrder/properties/Comments/properties/CreateTime",
+                              "type": "null",
+                              "title": "The Createtime Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            }
+                          }
+                        },
+                        "OrderContact": {
+                          "$id": "#/properties/StaffingOrder/properties/OrderContact",
+                          "type": "object",
+                          "title": "The Ordercontact Schema",
+                          "required": [
+                            "@contactType",
+                            "ContactInfo"
+                          ],
+                          "properties": {
+                            "@contactType": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderContact/properties/@contactType",
+                              "type": "string",
+                              "title": "The @contacttype Schema",
+                              "default": "",
+                              "examples": [
+                                "placedBy"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "ContactInfo": {
+                              "$id": "#/properties/StaffingOrder/properties/OrderContact/properties/ContactInfo",
+                              "type": "object",
+                              "title": "The Contactinfo Schema",
+                              "required": [
+                                "PersonName"
+                              ],
+                              "properties": {
+                                "PersonName": {
+                                  "$id": "#/properties/StaffingOrder/properties/OrderContact/properties/ContactInfo/properties/PersonName",
+                                  "type": "object",
+                                  "title": "The Personname Schema",
+                                  "required": [
+                                    "LegalName",
+                                    "FormattedName"
+                                  ],
+                                  "properties": {
+                                    "LegalName": {
+                                      "$id": "#/properties/StaffingOrder/properties/OrderContact/properties/ContactInfo/properties/PersonName/properties/LegalName",
+                                      "type": "string",
+                                      "title": "The Legalname Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "jgebo_gebo"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "FormattedName": {
+                                      "$id": "#/properties/StaffingOrder/properties/OrderContact/properties/ContactInfo/properties/PersonName/properties/FormattedName",
+                                      "type": "string",
+                                      "title": "The Formattedname Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "Gebo, Jeff"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "RequiredResponseDate": {
+                          "$id": "#/properties/StaffingOrder/properties/RequiredResponseDate",
+                          "type": "string",
+                          "title": "The Requiredresponsedate Schema",
+                          "default": "",
+                          "examples": [
+                            "2019-10-31"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "PositionQuantity": {
+                          "$id": "#/properties/StaffingOrder/properties/PositionQuantity",
+                          "type": "string",
+                          "title": "The Positionquantity Schema",
+                          "default": "",
+                          "examples": [
+                            "1"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "MaxSubmissionsAllowed": {
+                          "$id": "#/properties/StaffingOrder/properties/MaxSubmissionsAllowed",
+                          "type": "string",
+                          "title": "The Maxsubmissionsallowed Schema",
+                          "default": "",
+                          "examples": [
+                            "3"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "CanSubmitJobSeeker": {
+                          "$id": "#/properties/StaffingOrder/properties/CanSubmitJobSeeker",
+                          "type": "string",
+                          "title": "The Cansubmitjobseeker Schema",
+                          "default": "",
+                          "examples": [
+                            "no"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "StaffingPosition": {
+                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition",
+                          "type": "object",
+                          "title": "The Staffingposition Schema",
+                          "required": [
+                            "PositionHeader",
+                            "PrimaryDepartment",
+                            "Departments",
+                            "PositionDateRange",
+                            "ServiceType",
+                            "JobType",
+                            "ReportToPerson",
+                            "Coordinator",
+                            "Distributor",
+                            "WorkSite",
+                            "Rates",
+                            "CustomFields",
+                            "Quals",
+                            "PositionRules",
+                            "InvoiceInfo",
+                            "SecurityIdInstruction",
+                            "SecurityIdPattern"
+                          ],
+                          "properties": {
+                            "PositionHeader": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionHeader",
+                              "type": "object",
+                              "title": "The Positionheader Schema",
+                              "required": [
+                                "PositionTitle",
+                                "FormattedPositionDescription"
+                              ],
+                              "properties": {
+                                "PositionTitle": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionHeader/properties/PositionTitle",
+                                  "type": "string",
+                                  "title": "The Positiontitle Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Accountant - US"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "FormattedPositionDescription": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionHeader/properties/FormattedPositionDescription",
+                                  "type": "object",
+                                  "title": "The Formattedpositiondescription Schema",
+                                  "required": [
+                                    "Value"
+                                  ],
+                                  "properties": {
+                                    "Value": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionHeader/properties/FormattedPositionDescription/properties/Value",
+                                      "type": "string",
+                                      "title": "The Value Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "Performs work to ensure employees are paid on time and their paychecks are accurate Screen time worked inputs for calculating, coding, or other errors. Performs action necessary to determine pay and deductions including Federal and State taxes, insurance, retirement, union dues, savings and other deductions."
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "PrimaryDepartment": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PrimaryDepartment",
+                              "type": "string",
+                              "title": "The Primarydepartment Schema",
+                              "default": "",
+                              "examples": [
+                                "Network Solutions"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "Departments": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Departments",
+                              "type": "object",
+                              "title": "The Departments Schema",
+                              "required": [
+                                "Department"
+                              ],
+                              "properties": {
+                                "Department": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Departments/properties/Department",
+                                  "type": "object",
+                                  "title": "The Department Schema",
+                                  "required": [
+                                    "Code",
+                                    "Name",
+                                    "Allocation"
+                                  ],
+                                  "properties": {
+                                    "Code": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Departments/properties/Department/properties/Code",
+                                      "type": "string",
+                                      "title": "The Code Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "300"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "Name": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Departments/properties/Department/properties/Name",
+                                      "type": "string",
+                                      "title": "The Name Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "Network Solutions"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "Allocation": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Departments/properties/Department/properties/Allocation",
+                                      "type": "string",
+                                      "title": "The Allocation Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "100.000"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "PositionDateRange": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionDateRange",
+                              "type": "object",
+                              "title": "The Positiondaterange Schema",
+                              "required": [
+                                "StartDate",
+                                "ExpectedEndDate",
+                                "CreateDate",
+                                "SubmitDate",
+                                "ClosedDate"
+                              ],
+                              "properties": {
+                                "StartDate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionDateRange/properties/StartDate",
+                                  "type": "string",
+                                  "title": "The Startdate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "2019-10-30"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "ExpectedEndDate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionDateRange/properties/ExpectedEndDate",
+                                  "type": "string",
+                                  "title": "The Expectedenddate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "2019-11-15"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "CreateDate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionDateRange/properties/CreateDate",
+                                  "type": "string",
+                                  "title": "The Createdate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "2019-10-22"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "SubmitDate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionDateRange/properties/SubmitDate",
+                                  "type": "string",
+                                  "title": "The Submitdate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "2019-10-22"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "ClosedDate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionDateRange/properties/ClosedDate",
+                                  "type": "null",
+                                  "title": "The Closeddate Schema",
+                                  "default": null,
+                                  "examples": [
+                                    null
+                                  ]
+                                }
+                              }
+                            },
+                            "ServiceType": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/ServiceType",
+                              "type": "string",
+                              "title": "The Servicetype Schema",
+                              "default": "",
+                              "examples": [
+                                "Temp"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "JobType": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/JobType",
+                              "type": "string",
+                              "title": "The Jobtype Schema",
+                              "default": "",
+                              "examples": [
+                                "Full Time"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "ReportToPerson": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/ReportToPerson",
+                              "type": "object",
+                              "title": "The Reporttoperson Schema",
+                              "required": [
+                                "ContactInfo"
+                              ],
+                              "properties": {
+                                "ContactInfo": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/ReportToPerson/properties/ContactInfo",
+                                  "type": "object",
+                                  "title": "The Contactinfo Schema",
+                                  "required": [
+                                    "PersonName"
+                                  ],
+                                  "properties": {
+                                    "PersonName": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/ReportToPerson/properties/ContactInfo/properties/PersonName",
+                                      "type": "object",
+                                      "title": "The Personname Schema",
+                                      "required": [
+                                        "LegalName",
+                                        "FormattedName"
+                                      ],
+                                      "properties": {
+                                        "LegalName": {
+                                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/ReportToPerson/properties/ContactInfo/properties/PersonName/properties/LegalName",
+                                          "type": "string",
+                                          "title": "The Legalname Schema",
+                                          "default": "",
+                                          "examples": [
+                                            "jgebo_gebo"
+                                          ],
+                                          "pattern": "^(.*)$"
+                                        },
+                                        "FormattedName": {
+                                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/ReportToPerson/properties/ContactInfo/properties/PersonName/properties/FormattedName",
+                                          "type": "string",
+                                          "title": "The Formattedname Schema",
+                                          "default": "",
+                                          "examples": [
+                                            "Gebo, Jeff"
+                                          ],
+                                          "pattern": "^(.*)$"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Coordinator": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Coordinator",
+                              "type": "object",
+                              "title": "The Coordinator Schema",
+                              "required": [
+                                "ContactInfo"
+                              ],
+                              "properties": {
+                                "ContactInfo": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Coordinator/properties/ContactInfo",
+                                  "type": "object",
+                                  "title": "The Contactinfo Schema",
+                                  "required": [
+                                    "PersonName"
+                                  ],
+                                  "properties": {
+                                    "PersonName": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Coordinator/properties/ContactInfo/properties/PersonName",
+                                      "type": "object",
+                                      "title": "The Personname Schema",
+                                      "required": [
+                                        "LegalName",
+                                        "FormattedName"
+                                      ],
+                                      "properties": {
+                                        "LegalName": {
+                                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Coordinator/properties/ContactInfo/properties/PersonName/properties/LegalName",
+                                          "type": "null",
+                                          "title": "The Legalname Schema",
+                                          "default": null,
+                                          "examples": [
+                                            null
+                                          ]
+                                        },
+                                        "FormattedName": {
+                                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Coordinator/properties/ContactInfo/properties/PersonName/properties/FormattedName",
+                                          "type": "null",
+                                          "title": "The Formattedname Schema",
+                                          "default": null,
+                                          "examples": [
+                                            null
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Distributor": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Distributor",
+                              "type": "object",
+                              "title": "The Distributor Schema",
+                              "required": [
+                                "ContactInfo"
+                              ],
+                              "properties": {
+                                "ContactInfo": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Distributor/properties/ContactInfo",
+                                  "type": "object",
+                                  "title": "The Contactinfo Schema",
+                                  "required": [
+                                    "PersonName"
+                                  ],
+                                  "properties": {
+                                    "PersonName": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Distributor/properties/ContactInfo/properties/PersonName",
+                                      "type": "object",
+                                      "title": "The Personname Schema",
+                                      "required": [
+                                        "LegalName",
+                                        "FormattedName"
+                                      ],
+                                      "properties": {
+                                        "LegalName": {
+                                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Distributor/properties/ContactInfo/properties/PersonName/properties/LegalName",
+                                          "type": "null",
+                                          "title": "The Legalname Schema",
+                                          "default": null,
+                                          "examples": [
+                                            null
+                                          ]
+                                        },
+                                        "FormattedName": {
+                                          "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Distributor/properties/ContactInfo/properties/PersonName/properties/FormattedName",
+                                          "type": "null",
+                                          "title": "The Formattedname Schema",
+                                          "default": null,
+                                          "examples": [
+                                            null
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "WorkSite": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite",
+                              "type": "object",
+                              "title": "The Worksite Schema",
+                              "required": [
+                                "WorkSiteId",
+                                "Address",
+                                "Address2",
+                                "City",
+                                "StateCode",
+                                "PostalCode"
+                              ],
+                              "properties": {
+                                "WorkSiteId": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/WorkSiteId",
+                                  "type": "object",
+                                  "title": "The Worksiteid Schema",
+                                  "required": [
+                                    "Id"
+                                  ],
+                                  "properties": {
+                                    "Id": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/WorkSiteId/properties/Id",
+                                      "type": "string",
+                                      "title": "The Id Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "111 North Canal Suite 600"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                },
+                                "Address": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/Address",
+                                  "type": "string",
+                                  "title": "The Address Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "111 North Canal"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "Address2": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/Address2",
+                                  "type": "string",
+                                  "title": "The Address2 Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Suite 600"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "City": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/City",
+                                  "type": "string",
+                                  "title": "The City Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Chicago"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "StateCode": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/StateCode",
+                                  "type": "string",
+                                  "title": "The Statecode Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "IL"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "PostalCode": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/WorkSite/properties/PostalCode",
+                                  "type": "string",
+                                  "title": "The Postalcode Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "60606"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "Rates": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates",
+                              "type": "array",
+                              "title": "The Rates Schema",
+                              "items": {
+                                "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items",
+                                "type": "object",
+                                "title": "The Items Schema",
+                                "required": [
+                                  "@rateType",
+                                  "@rateStatus",
+                                  "@payType",
+                                  "BillAmount",
+                                  "PayAmount",
+                                  "Class",
+                                  "Markup",
+                                  "Factor",
+                                  "BaseClass"
+                                ],
+                                "properties": {
+                                  "@rateType": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/@rateType",
+                                    "type": "string",
+                                    "title": "The @ratetype Schema",
+                                    "default": "",
+                                    "examples": [
+                                      "bill"
+                                    ],
+                                    "pattern": "^(.*)$"
+                                  },
+                                  "@rateStatus": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/@rateStatus",
+                                    "type": "string",
+                                    "title": "The @ratestatus Schema",
+                                    "default": "",
+                                    "examples": [
+                                      "agreed"
+                                    ],
+                                    "pattern": "^(.*)$"
+                                  },
+                                  "@payType": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/@payType",
+                                    "type": "string",
+                                    "title": "The @paytype Schema",
+                                    "default": "",
+                                    "examples": [
+                                      "Recruited"
+                                    ],
+                                    "pattern": "^(.*)$"
+                                  },
+                                  "BillAmount": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/BillAmount",
+                                    "type": "object",
+                                    "title": "The Billamount Schema",
+                                    "required": [
+                                      "@rateAmountPeriod",
+                                      "@currency",
+                                      "$"
+                                    ],
+                                    "properties": {
+                                      "@rateAmountPeriod": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/BillAmount/properties/@rateAmountPeriod",
+                                        "type": "string",
+                                        "title": "The @rateamountperiod Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "Hr"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "@currency": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/BillAmount/properties/@currency",
+                                        "type": "string",
+                                        "title": "The @currency Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "USD"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "$": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/BillAmount/properties/$",
+                                        "type": "string",
+                                        "title": "The $ Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "55.00"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      }
+                                    }
+                                  },
+                                  "PayAmount": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/PayAmount",
+                                    "type": "object",
+                                    "title": "The Payamount Schema",
+                                    "required": [
+                                      "@rateAmountPeriod",
+                                      "@currency",
+                                      "$"
+                                    ],
+                                    "properties": {
+                                      "@rateAmountPeriod": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/PayAmount/properties/@rateAmountPeriod",
+                                        "type": "string",
+                                        "title": "The @rateamountperiod Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "Hr"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "@currency": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/PayAmount/properties/@currency",
+                                        "type": "string",
+                                        "title": "The @currency Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "USD"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "$": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/PayAmount/properties/$",
+                                        "type": "string",
+                                        "title": "The $ Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "0.00"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      }
+                                    }
+                                  },
+                                  "Class": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/Class",
+                                    "type": "string",
+                                    "title": "The Class Schema",
+                                    "default": "",
+                                    "examples": [
+                                      "ST"
+                                    ],
+                                    "pattern": "^(.*)$"
+                                  },
+                                  "Markup": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/Markup",
+                                    "type": "null",
+                                    "title": "The Markup Schema",
+                                    "default": null,
+                                    "examples": [
+                                      null
+                                    ]
+                                  },
+                                  "Factor": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/Factor",
+                                    "type": "null",
+                                    "title": "The Factor Schema",
+                                    "default": null,
+                                    "examples": [
+                                      null
+                                    ]
+                                  },
+                                  "BaseClass": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Rates/items/properties/BaseClass",
+                                    "type": "null",
+                                    "title": "The Baseclass Schema",
+                                    "default": null,
+                                    "examples": [
+                                      null
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "CustomFields": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields",
+                              "type": "object",
+                              "title": "The Customfields Schema",
+                              "required": [
+                                "CustomField"
+                              ],
+                              "properties": {
+                                "CustomField": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField",
+                                  "type": "array",
+                                  "title": "The Customfield Schema",
+                                  "items": {
+                                    "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items",
+                                    "type": "object",
+                                    "title": "The Items Schema",
+                                    "required": [
+                                      "@name",
+                                      "@mandatory",
+                                      "@type",
+                                      "pickList",
+                                      "Value",
+                                      "Class"
+                                    ],
+                                    "properties": {
+                                      "@name": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/@name",
+                                        "type": "string",
+                                        "title": "The @name Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "What's your favorite color?"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "@mandatory": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/@mandatory",
+                                        "type": "string",
+                                        "title": "The @mandatory Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "yes"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "@type": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/@type",
+                                        "type": "string",
+                                        "title": "The @type Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "xsd:pickList"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "pickList": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/pickList",
+                                        "type": "object",
+                                        "title": "The Picklist Schema",
+                                        "required": [
+                                          "@isCompleteList",
+                                          "@totalNumberOfItems",
+                                          "item"
+                                        ],
+                                        "properties": {
+                                          "@isCompleteList": {
+                                            "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/pickList/properties/@isCompleteList",
+                                            "type": "string",
+                                            "title": "The @iscompletelist Schema",
+                                            "default": "",
+                                            "examples": [
+                                              "yes"
+                                            ],
+                                            "pattern": "^(.*)$"
+                                          },
+                                          "@totalNumberOfItems": {
+                                            "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/pickList/properties/@totalNumberOfItems",
+                                            "type": "string",
+                                            "title": "The @totalnumberofitems Schema",
+                                            "default": "",
+                                            "examples": [
+                                              "6"
+                                            ],
+                                            "pattern": "^(.*)$"
+                                          },
+                                          "item": {
+                                            "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/pickList/properties/item",
+                                            "type": "array",
+                                            "title": "The Item Schema",
+                                            "items": {
+                                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/pickList/properties/item/items",
+                                              "type": "string",
+                                              "title": "The Items Schema",
+                                              "default": "",
+                                              "examples": [
+                                                "Blue",
+                                                "Brown",
+                                                "Green",
+                                                "Purple",
+                                                "Red",
+                                                "Yellow"
+                                              ],
+                                              "pattern": "^(.*)$"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "Value": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/Value",
+                                        "type": "string",
+                                        "title": "The Value Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "Red"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      },
+                                      "Class": {
+                                        "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/CustomFields/properties/CustomField/items/properties/Class",
+                                        "type": "string",
+                                        "title": "The Class Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "JobPosting"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Quals": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Quals",
+                              "type": "object",
+                              "title": "The Quals Schema",
+                              "required": [
+                                "Qual"
+                              ],
+                              "properties": {
+                                "Qual": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Quals/properties/Qual",
+                                  "type": "object",
+                                  "title": "The Qual Schema",
+                                  "required": [
+                                    "@name",
+                                    "@mandatory",
+                                    "@type",
+                                    "Ratings"
+                                  ],
+                                  "properties": {
+                                    "@name": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Quals/properties/Qual/properties/@name",
+                                      "type": "string",
+                                      "title": "The @name Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "How well do you know Google Docs?"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "@mandatory": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Quals/properties/Qual/properties/@mandatory",
+                                      "type": "string",
+                                      "title": "The @mandatory Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "yes"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "@type": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Quals/properties/Qual/properties/@type",
+                                      "type": "string",
+                                      "title": "The @type Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "xsd:Ratings"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "Ratings": {
+                                      "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/Quals/properties/Qual/properties/Ratings",
+                                      "type": "string",
+                                      "title": "The Ratings Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "-1"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "PositionRules": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules",
+                              "type": "object",
+                              "title": "The Positionrules Schema",
+                              "required": [
+                                "AutoEngage",
+                                "AutoRegister",
+                                "AutoActivate",
+                                "PayRateRequired",
+                                "ResumeRequired",
+                                "JobSeekerBillRateCanExceedRequestedBillRate",
+                                "SupplierMustEnterRateChangeAmountsAndDurationOnJobSeekers",
+                                "AllowSupplierToSelectJobSeekerSite"
+                              ],
+                              "properties": {
+                                "AutoEngage": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/AutoEngage",
+                                  "type": "string",
+                                  "title": "The Autoengage Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "no"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "AutoRegister": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/AutoRegister",
+                                  "type": "string",
+                                  "title": "The Autoregister Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "yes"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "AutoActivate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/AutoActivate",
+                                  "type": "string",
+                                  "title": "The Autoactivate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "yes"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "PayRateRequired": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/PayRateRequired",
+                                  "type": "string",
+                                  "title": "The Payraterequired Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "yes"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "ResumeRequired": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/ResumeRequired",
+                                  "type": "string",
+                                  "title": "The Resumerequired Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "yes"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "JobSeekerBillRateCanExceedRequestedBillRate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/JobSeekerBillRateCanExceedRequestedBillRate",
+                                  "type": "string",
+                                  "title": "The Jobseekerbillratecanexceedrequestedbillrate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "no"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "SupplierMustEnterRateChangeAmountsAndDurationOnJobSeekers": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/SupplierMustEnterRateChangeAmountsAndDurationOnJobSeekers",
+                                  "type": "string",
+                                  "title": "The Suppliermustenterratechangeamountsanddurationonjobseekers Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "no"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "AllowSupplierToSelectJobSeekerSite": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/PositionRules/properties/AllowSupplierToSelectJobSeekerSite",
+                                  "type": "string",
+                                  "title": "The Allowsuppliertoselectjobseekersite Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "no"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "InvoiceInfo": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo",
+                              "type": "object",
+                              "title": "The Invoiceinfo Schema",
+                              "required": [
+                                "AutoInvoiceType",
+                                "TrialEndDate",
+                                "TravelTime",
+                                "HoursPerDay",
+                                "HoursPerWeek",
+                                "BillablePerDiem",
+                                "EstimatedAdditionalSpend",
+                                "EstimatedTotalHours",
+                                "EstimatedExpenses",
+                                "SiteTax",
+                                "MaximumExpenses",
+                                "ExternalReqNumber",
+                                "PurchaseOrderNumber"
+                              ],
+                              "properties": {
+                                "AutoInvoiceType": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/AutoInvoiceType",
+                                  "type": "string",
+                                  "title": "The Autoinvoicetype Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Both"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "TrialEndDate": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/TrialEndDate",
+                                  "type": "null",
+                                  "title": "The Trialenddate Schema",
+                                  "default": null,
+                                  "examples": [
+                                    null
+                                  ]
+                                },
+                                "TravelTime": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/TravelTime",
+                                  "type": "string",
+                                  "title": "The Traveltime Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "0.000"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "HoursPerDay": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/HoursPerDay",
+                                  "type": "string",
+                                  "title": "The Hoursperday Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "8.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "HoursPerWeek": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/HoursPerWeek",
+                                  "type": "string",
+                                  "title": "The Hoursperweek Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "40.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "BillablePerDiem": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/BillablePerDiem",
+                                  "type": "string",
+                                  "title": "The Billableperdiem Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "0.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "EstimatedAdditionalSpend": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/EstimatedAdditionalSpend",
+                                  "type": "string",
+                                  "title": "The Estimatedadditionalspend Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "6006.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "EstimatedTotalHours": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/EstimatedTotalHours",
+                                  "type": "string",
+                                  "title": "The Estimatedtotalhours Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "104.0"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "EstimatedExpenses": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/EstimatedExpenses",
+                                  "type": "string",
+                                  "title": "The Estimatedexpenses Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "0.000"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "SiteTax": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/SiteTax",
+                                  "type": "string",
+                                  "title": "The Sitetax Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "0.000"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "MaximumExpenses": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/MaximumExpenses",
+                                  "type": "string",
+                                  "title": "The Maximumexpenses Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "0.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "ExternalReqNumber": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/ExternalReqNumber",
+                                  "type": "null",
+                                  "title": "The Externalreqnumber Schema",
+                                  "default": null,
+                                  "examples": [
+                                    null
+                                  ]
+                                },
+                                "PurchaseOrderNumber": {
+                                  "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/InvoiceInfo/properties/PurchaseOrderNumber",
+                                  "type": "null",
+                                  "title": "The Purchaseordernumber Schema",
+                                  "default": null,
+                                  "examples": [
+                                    null
+                                  ]
+                                }
+                              }
+                            },
+                            "SecurityIdInstruction": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/SecurityIdInstruction",
+                              "type": "null",
+                              "title": "The Securityidinstruction Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "SecurityIdPattern": {
+                              "$id": "#/properties/StaffingOrder/properties/StaffingPosition/properties/SecurityIdPattern",
+                              "type": "string",
+                              "title": "The Securityidpattern Schema",
+                              "default": "",
+                              "examples": [
+                                "[A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][0-3][0-9][0-1][0-9][0-9][0-9][0-9][0-9]"
+                              ],
+                              "pattern": "^(.*)$"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                }
+              }
+            },
+            "jobSeekerv1": {
+              "subscribe": {
+                "summary": "Job Seeker",
+                "payload": {
+                  {
+                  "definitions": {},
+                  "$schema": "http://json-schema.org/draft-07/schema#",
+                  "$id": "http://example.com/root.json",
+                  "type": "object",
+                  "title": "The Root Schema",
+                  "required": [
+                    "HumanResource"
+                  ],
+                  "properties": {
+                    "HumanResource": {
+                      "$id": "#/properties/HumanResource",
+                      "type": "object",
+                      "title": "The Humanresource Schema",
+                      "required": [
+                        "@xmlns",
+                        "@xmlns:xsi",
+                        "@xsi:schemaLocation",
+                        "HumanResourceId",
+                        "ReferenceInformation",
+                        "ResourceInformation",
+                        "Rates",
+                        "CustomFields",
+                        "Quals",
+                        "HumanResourceComments",
+                        "Profile"
+                      ],
+                      "properties": {
+                        "@xmlns": {
+                          "$id": "#/properties/HumanResource/properties/@xmlns",
+                          "type": "string",
+                          "title": "The @xmlns Schema",
+                          "default": "",
+                          "examples": [
+                            "jobSeeker"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "@xmlns:xsi": {
+                          "$id": "#/properties/HumanResource/properties/@xmlns:xsi",
+                          "type": "string",
+                          "title": "The @xmlns:xsi Schema",
+                          "default": "",
+                          "examples": [
+                            "http://www.w3.org/2001/XMLSchema-instance"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "@xsi:schemaLocation": {
+                          "$id": "#/properties/HumanResource/properties/@xsi:schemaLocation",
+                          "type": "string",
+                          "title": "The @xsi:schemalocation Schema",
+                          "default": "",
+                          "examples": [
+                            "jobSeeker https://localhost/schema/InSiteJobSeeker.xsd"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "HumanResourceId": {
+                          "$id": "#/properties/HumanResource/properties/HumanResourceId",
+                          "type": "object",
+                          "title": "The Humanresourceid Schema",
+                          "required": [
+                            "@validFrom",
+                            "@validTo",
+                            "IdValue",
+                            "ExternalReferenceId",
+                            "EntityContactInfo"
+                          ],
+                          "properties": {
+                            "@validFrom": {
+                              "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/@validFrom",
+                              "type": "string",
+                              "title": "The @validfrom Schema",
+                              "default": "",
+                              "examples": [
+                                "{{startDate}}"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "@validTo": {
+                              "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/@validTo",
+                              "type": "string",
+                              "title": "The @validto Schema",
+                              "default": "",
+                              "examples": [
+                                "{{endDate}}"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "IdValue": {
+                              "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/IdValue",
+                              "type": "null",
+                              "title": "The Idvalue Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "ExternalReferenceId": {
+                              "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/ExternalReferenceId",
+                              "type": "string",
+                              "title": "The Externalreferenceid Schema",
+                              "default": "",
+                              "examples": [
+                                "{{$guid}}"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "EntityContactInfo": {
+                              "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/EntityContactInfo",
+                              "type": "object",
+                              "title": "The Entitycontactinfo Schema",
+                              "required": [
+                                "PersonName"
+                              ],
+                              "properties": {
+                                "PersonName": {
+                                  "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/EntityContactInfo/properties/PersonName",
+                                  "type": "object",
+                                  "title": "The Personname Schema",
+                                  "required": [
+                                    "LegalName"
+                                  ],
+                                  "properties": {
+                                    "LegalName": {
+                                      "$id": "#/properties/HumanResource/properties/HumanResourceId/properties/EntityContactInfo/properties/PersonName/properties/LegalName",
+                                      "type": "string",
+                                      "title": "The Legalname Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "{{supplierUsername}}"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "ReferenceInformation": {
+                          "$id": "#/properties/HumanResource/properties/ReferenceInformation",
+                          "type": "object",
+                          "title": "The Referenceinformation Schema",
+                          "required": [
+                            "StaffingSupplierId",
+                            "StaffingCustomerId",
+                            "OrderId",
+                            "RemitToAddress",
+                            "WorkerPayType"
+                          ],
+                          "properties": {
+                            "StaffingSupplierId": {
+                              "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/StaffingSupplierId",
+                              "type": "object",
+                              "title": "The Staffingsupplierid Schema",
+                              "required": [
+                                "IdValue"
+                              ],
+                              "properties": {
+                                "IdValue": {
+                                  "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/StaffingSupplierId/properties/IdValue",
+                                  "type": "string",
+                                  "title": "The Idvalue Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "{{supplierId}}"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "StaffingCustomerId": {
+                              "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/StaffingCustomerId",
+                              "type": "object",
+                              "title": "The Staffingcustomerid Schema",
+                              "required": [
+                                "IdValue"
+                              ],
+                              "properties": {
+                                "IdValue": {
+                                  "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/StaffingCustomerId/properties/IdValue",
+                                  "type": "string",
+                                  "title": "The Idvalue Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "{{clientId}}"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "OrderId": {
+                              "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/OrderId",
+                              "type": "object",
+                              "title": "The Orderid Schema",
+                              "required": [
+                                "IdValue"
+                              ],
+                              "properties": {
+                                "IdValue": {
+                                  "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/OrderId/properties/IdValue",
+                                  "type": "string",
+                                  "title": "The Idvalue Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "{{jpId}}"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "RemitToAddress": {
+                              "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/RemitToAddress",
+                              "type": "null",
+                              "title": "The Remittoaddress Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "WorkerPayType": {
+                              "$id": "#/properties/HumanResource/properties/ReferenceInformation/properties/WorkerPayType",
+                              "type": "null",
+                              "title": "The Workerpaytype Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            }
+                          }
+                        },
+                        "ResourceInformation": {
+                          "$id": "#/properties/HumanResource/properties/ResourceInformation",
+                          "type": "object",
+                          "title": "The Resourceinformation Schema",
+                          "required": [
+                            "EntityContactInfo",
+                            "AvailabilityDate"
+                          ],
+                          "properties": {
+                            "EntityContactInfo": {
+                              "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo",
+                              "type": "object",
+                              "title": "The Entitycontactinfo Schema",
+                              "required": [
+                                "PersonName",
+                                "UserName",
+                                "SecurityId",
+                                "ContactMethod"
+                              ],
+                              "properties": {
+                                "PersonName": {
+                                  "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/PersonName",
+                                  "type": "object",
+                                  "title": "The Personname Schema",
+                                  "required": [
+                                    "LegalName",
+                                    "FirstName",
+                                    "LastName"
+                                  ],
+                                  "properties": {
+                                    "LegalName": {
+                                      "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/PersonName/properties/LegalName",
+                                      "type": "string",
+                                      "title": "The Legalname Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "Jane Doe"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "FirstName": {
+                                      "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/PersonName/properties/FirstName",
+                                      "type": "string",
+                                      "title": "The Firstname Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "Jane"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "LastName": {
+                                      "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/PersonName/properties/LastName",
+                                      "type": "string",
+                                      "title": "The Lastname Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "Doe"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                },
+                                "UserName": {
+                                  "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/UserName",
+                                  "type": "null",
+                                  "title": "The Username Schema",
+                                  "default": null,
+                                  "examples": [
+                                    null
+                                  ]
+                                },
+                                "SecurityId": {
+                                  "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/SecurityId",
+                                  "type": "string",
+                                  "title": "The Securityid Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "05179908PW"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "ContactMethod": {
+                                  "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/ContactMethod",
+                                  "type": "object",
+                                  "title": "The Contactmethod Schema",
+                                  "required": [
+                                    "InternetEmailAddress"
+                                  ],
+                                  "properties": {
+                                    "InternetEmailAddress": {
+                                      "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/EntityContactInfo/properties/ContactMethod/properties/InternetEmailAddress",
+                                      "type": "string",
+                                      "title": "The Internetemailaddress Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "testworker@sap.com"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "AvailabilityDate": {
+                              "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/AvailabilityDate",
+                              "type": "object",
+                              "title": "The Availabilitydate Schema",
+                              "required": [
+                                "AvailabilityStartDate"
+                              ],
+                              "properties": {
+                                "AvailabilityStartDate": {
+                                  "$id": "#/properties/HumanResource/properties/ResourceInformation/properties/AvailabilityDate/properties/AvailabilityStartDate",
+                                  "type": "string",
+                                  "title": "The Availabilitystartdate Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "{{startDate}}"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Rates": {
+                          "$id": "#/properties/HumanResource/properties/Rates",
+                          "type": "object",
+                          "title": "The Rates Schema",
+                          "required": [
+                            "@rateType",
+                            "@rateStatus",
+                            "BillAmount",
+                            "MinBillAmount",
+                            "MaxBillAmount",
+                            "PayAmount",
+                            "Class",
+                            "Markup",
+                            "Factor",
+                            "BaseClass"
+                          ],
+                          "properties": {
+                            "@rateType": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/@rateType",
+                              "type": "string",
+                              "title": "The @ratetype Schema",
+                              "default": "",
+                              "examples": [
+                                "bill"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "@rateStatus": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/@rateStatus",
+                              "type": "string",
+                              "title": "The @ratestatus Schema",
+                              "default": "",
+                              "examples": [
+                                "agreed"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "BillAmount": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/BillAmount",
+                              "type": "object",
+                              "title": "The Billamount Schema",
+                              "required": [
+                                "@rateAmountPeriod",
+                                "@currency",
+                                "$"
+                              ],
+                              "properties": {
+                                "@rateAmountPeriod": {
+                                  "$id": "#/properties/HumanResource/properties/Rates/properties/BillAmount/properties/@rateAmountPeriod",
+                                  "type": "string",
+                                  "title": "The @rateamountperiod Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Hr"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "@currency": {
+                                  "$id": "#/properties/HumanResource/properties/Rates/properties/BillAmount/properties/@currency",
+                                  "type": "string",
+                                  "title": "The @currency Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "USD"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "$": {
+                                  "$id": "#/properties/HumanResource/properties/Rates/properties/BillAmount/properties/$",
+                                  "type": "string",
+                                  "title": "The $ Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "60.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "MinBillAmount": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/MinBillAmount",
+                              "type": "string",
+                              "title": "The Minbillamount Schema",
+                              "default": "",
+                              "examples": [
+                                "40.00"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "MaxBillAmount": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/MaxBillAmount",
+                              "type": "string",
+                              "title": "The Maxbillamount Schema",
+                              "default": "",
+                              "examples": [
+                                "60.00"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "PayAmount": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/PayAmount",
+                              "type": "object",
+                              "title": "The Payamount Schema",
+                              "required": [
+                                "@rateAmountPeriod",
+                                "@currency",
+                                "$"
+                              ],
+                              "properties": {
+                                "@rateAmountPeriod": {
+                                  "$id": "#/properties/HumanResource/properties/Rates/properties/PayAmount/properties/@rateAmountPeriod",
+                                  "type": "string",
+                                  "title": "The @rateamountperiod Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Hr"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "@currency": {
+                                  "$id": "#/properties/HumanResource/properties/Rates/properties/PayAmount/properties/@currency",
+                                  "type": "string",
+                                  "title": "The @currency Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "USD"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "$": {
+                                  "$id": "#/properties/HumanResource/properties/Rates/properties/PayAmount/properties/$",
+                                  "type": "string",
+                                  "title": "The $ Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "50.00"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            },
+                            "Class": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/Class",
+                              "type": "string",
+                              "title": "The Class Schema",
+                              "default": "",
+                              "examples": [
+                                "ST"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "Markup": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/Markup",
+                              "type": "null",
+                              "title": "The Markup Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "Factor": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/Factor",
+                              "type": "null",
+                              "title": "The Factor Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            },
+                            "BaseClass": {
+                              "$id": "#/properties/HumanResource/properties/Rates/properties/BaseClass",
+                              "type": "null",
+                              "title": "The Baseclass Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            }
+                          }
+                        },
+                        "CustomFields": {
+                          "$id": "#/properties/HumanResource/properties/CustomFields",
+                          "type": "object",
+                          "title": "The Customfields Schema",
+                          "required": [
+                            "CustomField"
+                          ],
+                          "properties": {
+                            "CustomField": {
+                              "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField",
+                              "type": "object",
+                              "title": "The Customfield Schema",
+                              "required": [
+                                "@name",
+                                "@mandatory",
+                                "@type",
+                                "pickList",
+                                "Value",
+                                "Class"
+                              ],
+                              "properties": {
+                                "@name": {
+                                  "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/@name",
+                                  "type": "string",
+                                  "title": "The @name Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "Has this candidate previously worked for FG APIs as a permanent or temporary worker?"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "@mandatory": {
+                                  "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/@mandatory",
+                                  "type": "string",
+                                  "title": "The @mandatory Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "yes"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "@type": {
+                                  "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/@type",
+                                  "type": "string",
+                                  "title": "The @type Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "xsd:pickList"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "pickList": {
+                                  "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/pickList",
+                                  "type": "object",
+                                  "title": "The Picklist Schema",
+                                  "required": [
+                                    "@isCompleteList",
+                                    "@totalNumberOfItems",
+                                    "item"
+                                  ],
+                                  "properties": {
+                                    "@isCompleteList": {
+                                      "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/pickList/properties/@isCompleteList",
+                                      "type": "string",
+                                      "title": "The @iscompletelist Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "yes"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "@totalNumberOfItems": {
+                                      "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/pickList/properties/@totalNumberOfItems",
+                                      "type": "string",
+                                      "title": "The @totalnumberofitems Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "2"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "item": {
+                                      "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/pickList/properties/item",
+                                      "type": "array",
+                                      "title": "The Item Schema",
+                                      "items": {
+                                        "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/pickList/properties/item/items",
+                                        "type": "string",
+                                        "title": "The Items Schema",
+                                        "default": "",
+                                        "examples": [
+                                          "No",
+                                          "Yes"
+                                        ],
+                                        "pattern": "^(.*)$"
+                                      }
+                                    }
+                                  }
+                                },
+                                "Value": {
+                                  "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/Value",
+                                  "type": "string",
+                                  "title": "The Value Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "No"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                },
+                                "Class": {
+                                  "$id": "#/properties/HumanResource/properties/CustomFields/properties/CustomField/properties/Class",
+                                  "type": "string",
+                                  "title": "The Class Schema",
+                                  "default": "",
+                                  "examples": [
+                                    "JobSeeker"
+                                  ],
+                                  "pattern": "^(.*)$"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Quals": {
+                          "$id": "#/properties/HumanResource/properties/Quals",
+                          "type": "null",
+                          "title": "The Quals Schema",
+                          "default": null,
+                          "examples": [
+                            null
+                          ]
+                        },
+                        "HumanResourceComments": {
+                          "$id": "#/properties/HumanResource/properties/HumanResourceComments",
+                          "type": "string",
+                          "title": "The Humanresourcecomments Schema",
+                          "default": "",
+                          "examples": [
+                            ""
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "Profile": {
+                          "$id": "#/properties/HumanResource/properties/Profile",
+                          "type": "object",
+                          "title": "The Profile Schema",
+                          "required": [
+                            "Resume",
+                            "AdditionalAttachment"
+                          ],
+                          "properties": {
+                            "Resume": {
+                              "$id": "#/properties/HumanResource/properties/Profile/properties/Resume",
+                              "type": "object",
+                              "title": "The Resume Schema",
+                              "required": [
+                                "NonXMLResume"
+                              ],
+                              "properties": {
+                                "NonXMLResume": {
+                                  "$id": "#/properties/HumanResource/properties/Profile/properties/Resume/properties/NonXMLResume",
+                                  "type": "object",
+                                  "title": "The Nonxmlresume Schema",
+                                  "required": [
+                                    "TextResume",
+                                    "SupportingMaterials"
+                                  ],
+                                  "properties": {
+                                    "TextResume": {
+                                      "$id": "#/properties/HumanResource/properties/Profile/properties/Resume/properties/NonXMLResume/properties/TextResume",
+                                      "type": "string",
+                                      "title": "The Textresume Schema",
+                                      "default": "",
+                                      "examples": [
+                                        "VBERi0xLjQKJeLjz9MKNCAw ... [base64 encoded document] ... wYWNlL0RldmljZUdyYXkvU3VidHl"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                    },
+                                    "SupportingMaterials": {
+                                      "$id": "#/properties/HumanResource/properties/Profile/properties/Resume/properties/NonXMLResume/properties/SupportingMaterials",
+                                      "type": "object",
+                                      "title": "The Supportingmaterials Schema",
+                                      "required": [
+                                        "AttachmentReference"
+                                      ],
+                                      "properties": {
+                                        "AttachmentReference": {
+                                          "$id": "#/properties/HumanResource/properties/Profile/properties/Resume/properties/NonXMLResume/properties/SupportingMaterials/properties/AttachmentReference",
+                                          "type": "object",
+                                          "title": "The Attachmentreference Schema",
+                                          "required": [
+                                            "@mimeType",
+                                            "$"
+                                          ],
+                                          "properties": {
+                                            "@mimeType": {
+                                              "$id": "#/properties/HumanResource/properties/Profile/properties/Resume/properties/NonXMLResume/properties/SupportingMaterials/properties/AttachmentReference/properties/@mimeType",
+                                              "type": "string",
+                                              "title": "The @mimetype Schema",
+                                              "default": "",
+                                              "examples": [
+                                                "application/pdf"
+                                              ],
+                                              "pattern": "^(.*)$"
+                                            },
+                                            "$": {
+                                              "$id": "#/properties/HumanResource/properties/Profile/properties/Resume/properties/NonXMLResume/properties/SupportingMaterials/properties/AttachmentReference/properties/$",
+                                              "type": "string",
+                                              "title": "The $ Schema",
+                                              "default": "",
+                                              "examples": [
+                                                "test resume.pdf"
+                                              ],
+                                              "pattern": "^(.*)$"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "AdditionalAttachment": {
+                              "$id": "#/properties/HumanResource/properties/Profile/properties/AdditionalAttachment",
+                              "type": "null",
+                              "title": "The Additionalattachment Schema",
+                              "default": null,
+                              "examples": [
+                                null
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
                 }
               }
             }
