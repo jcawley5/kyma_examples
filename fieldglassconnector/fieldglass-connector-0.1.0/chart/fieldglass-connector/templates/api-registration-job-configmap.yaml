@@ -1562,7 +1562,7 @@ data:
                               "title": "The @validfrom Schema",
                               "default": "",
                               "examples": [
-                                "{{startDate}}"
+                                "2019-09-27"
                               ],
                               "pattern": "^(.*)$"
                             },
@@ -1572,7 +1572,7 @@ data:
                               "title": "The @validto Schema",
                               "default": "",
                               "examples": [
-                                "{{endDate}}"
+                                "2019-09-27"
                               ],
                               "pattern": "^(.*)$"
                             },
@@ -1591,7 +1591,7 @@ data:
                               "title": "The Externalreferenceid Schema",
                               "default": "",
                               "examples": [
-                                "{{$guid}}"
+                                "4d8effd0-35a6-4b30-96b5-2fd43f6e2d6b"
                               ],
                               "pattern": "^(.*)$"
                             },
@@ -1617,7 +1617,7 @@ data:
                                       "title": "The Legalname Schema",
                                       "default": "",
                                       "examples": [
-                                        "{{supplierUsername}}"
+                                        "MySupplier"
                                       ],
                                       "pattern": "^(.*)$"
                                     }
@@ -1653,7 +1653,7 @@ data:
                                   "title": "The Idvalue Schema",
                                   "default": "",
                                   "examples": [
-                                    "{{supplierId}}"
+                                    "E001"
                                   ],
                                   "pattern": "^(.*)$"
                                 }
@@ -1673,7 +1673,7 @@ data:
                                   "title": "The Idvalue Schema",
                                   "default": "",
                                   "examples": [
-                                    "{{clientId}}"
+                                    "TEST"
                                   ],
                                   "pattern": "^(.*)$"
                                 }
@@ -1693,7 +1693,7 @@ data:
                                   "title": "The Idvalue Schema",
                                   "default": "",
                                   "examples": [
-                                    "{{jpId}}"
+                                    "TESTWO00000001"
                                   ],
                                   "pattern": "^(.*)$"
                                 }
@@ -1836,7 +1836,7 @@ data:
                                   "title": "The Availabilitystartdate Schema",
                                   "default": "",
                                   "examples": [
-                                    "{{startDate}}"
+                                    "2019-09-27"
                                   ],
                                   "pattern": "^(.*)$"
                                 }
