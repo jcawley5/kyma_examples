@@ -13,9 +13,10 @@
       "description": "Username for event processing webhook"
     },
     "password": {
-      "type": "password",
+      "type": "string",
       "title": "Password",
-      "description": "Password for event processing webhook"
+      "description": "Password for event processing webhook",
+      "format": "password"
     },
     "cluster_domain": {
       "type": "string",
