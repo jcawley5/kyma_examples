@@ -37,6 +37,17 @@ spec:
         ports:
         - name: http
           containerPort: 8080
+        env:
+        - name: EVENT_PASS
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "bundle.fullname" . }}-fg-event-gw
+              key: EVENT_PASS
+        - name: EVENT_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "bundle.fullname" . }}-fg-event-gw
+              key: EVENT_USER
         args:
           - --app-name={{ .Values.application_name }}
           - --password=$(EVENT_PASS)
