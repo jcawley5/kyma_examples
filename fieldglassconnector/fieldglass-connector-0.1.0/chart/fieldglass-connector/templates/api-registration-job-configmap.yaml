@@ -282,112 +282,99 @@ data:
                 }
               }
             },
-            "jobSeeker.v1": {
+            "worker.v1": {
               "subscribe": {
-                "summary": "Job Seeker submission",
+                "summary": "Job Work Order",
                 "payload": {
                   "type": "object",
-                  "required": [
-                    "KEY"
-                  ],
-                  "example": {
-                    "HumanResource": {
-                      "@xmlns": "jobSeeker",
-                      "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                      "@xsi:schemaLocation": "jobSeeker https://localhost/schema/InSiteJobSeeker.xsd",
-                      "HumanResourceId": {
-                        "@validFrom": "2019-09-27",
-                        "@validTo": "2019-10-27",
-                        "IdValue": null,
-                        "ExternalReferenceId": "2a6d7688-714f-4eb0-a961-27f905fb9687",
-                        "EntityContactInfo": {
-                          "PersonName": {
-                            "LegalName": "sup1234"
-                          }
-                        }
-                      },
-                      "ReferenceInformation": {
-                        "StaffingSupplierId": {
-                          "IdValue": ""
+                  "example": 
+                    {
+                      "ShowWorker" : {
+                        "@xmlns" : "worker",
+                        "@xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+                        "@languageCode" : "en-US",
+                        "@versionID" : "normalizedString",
+                        "@releaseID" : "9.0",
+                        "@systemEnvironmentCode" : "FieldglassTest",
+                        "@xsi:schemaLocation" : "worker https://xcore1.fgvms.com/schema/InSiteWorker.xsd",
+                        "ApplicationArea" : {
+                          "CreationDateTime" : "2019-11-18"
                         },
-                        "StaffingCustomerId": {
-                          "IdValue": "JCJG"
-                        },
-                        "OrderId": {
-                          "IdValue": "JCJGJP00000014"
-                        },
-                        "RemitToAddress": null,
-                        "WorkerPayType": null
-                      },
-                      "ResourceInformation": {
-                        "EntityContactInfo": {
-                          "PersonName": {
-                            "LegalName": "Jane Doe",
-                            "FirstName": "Jane",
-                            "LastName": "Doe"
-                          },
-                          "UserName": null,
-                          "SecurityId": "05179908PW",
-                          "ContactMethod": {
-                            "InternetEmailAddress": "testworker@sap.com"
-                          }
-                        },
-                        "AvailabilityDate": {
-                          "AvailabilityStartDate": "2019-11-01"
-                        }
-                      },
-                      "Rates": {
-                        "@rateType": "bill",
-                        "@rateStatus": "agreed",
-                        "BillAmount": {
-                          "@rateAmountPeriod": "Hr",
-                          "@currency": "USD",
-                          "$": "60.00"
-                        },
-                        "MinBillAmount": "40.00",
-                        "MaxBillAmount": "60.00",
-                        "PayAmount": {
-                          "@rateAmountPeriod": "Hr",
-                          "@currency": "USD",
-                          "$": "50.00"
-                        },
-                        "Class": "ST",
-                        "Markup": null,
-                        "Factor": null,
-                        "BaseClass": null
-                      },
-                      "CustomFields": {
-                        "CustomField": {
-                          "@name": "Has this candidate previously worked for FG APIs as a permanent or\ntemporary worker?",
-                          "@mandatory": "yes",
-                          "@type": "xsd:pickList",
-                          "pickList": {
-                            "@isCompleteList": "yes",
-                            "@totalNumberOfItems": "2",
-                            "item": [
-                              "No",
-                              "Yes"
-                            ]
-                          },
-                          "Value": "No",
-                          "Class": "JobSeeker"
-                        }
-                      },
-                      "Quals": null,
-                      "HumanResourceComments": "",
-                      "Profile": {
-                        "Resume": {
-                          "NonXMLResume": {
-                            "TextResume": "VBERi0xLjQKJeLjz9MKNCAw ... [base64 encoded document] ... wYWNlL0RldmljZUdyYXkvU3VidHl",
-                            "SupportingMaterials": {
-                              "AttachmentReference": {
-                                "@mimeType": "application/pdf",
-                                "$": "test resume.pdf"
+                        "DataArea" : {
+                          "Worker" : {
+                            "JobSeekerID" : "F003JS00000015",
+                            "ExternalReferenceId" : "3e502ce1-ad15-4ce0-83ff-b54311f44db5",
+                            "JobSeekerCode" : null,
+                            "WorkerID" : "JCJGWK00000008",
+                            "WorkOrderID" : "JCJGWO00000012",
+                            "Sequence" : "1",
+                            "SecurityID" : null,
+                            "PersonID" : "z11112320494425089408905",
+                            "Status" : "Active",
+                            "InSiteStatus" : null,
+                            "FirstName" : "Joyce",
+                            "LastName" : "Gebo",
+                            "WorkersEmail" : "qa_test@sap.com",
+                            "JobPostingID" : "JCJGJP00000017",
+                            "JobPostingTitle" : "Accountant - US",
+                            "WorkOrderOwner" : "NA",
+                            "WorkOrderOwnerEmployeeID" : "NA",
+                            "VendorNumber" : "E009",
+                            "VendorName" : "EDH Supplier Inc.",
+                            "BuyerCode" : "GEBO",
+                            "RemitToAddressCode" : null,
+                            "BillablePerDiem" : "0.00",
+                            "StartDate" : "09/27/2019",
+                            "EndDate" : "10/15/2019",
+                            "Currency" : "USD",
+                            "BusinessUnit" : {
+                              "Name" : "Gebo Inc.",
+                              "Code" : "GEBO"
+                            },
+                            "Site" : {
+                              "Name" : "Chicago IL",
+                              "Code" : "Chicago IL"
+                            },
+                            "JobCode" : "NA",
+                            "CostCenters" : {
+                              "CostCenter" : {
+                                "Name" : "Operational Accounting",
+                                "Code" : "200",
+                                "Tasks" : {
+                                  "Task" : [ {
+                                    "Name" : null,
+                                    "Code" : null
+                                  }, {
+                                    "Name" : null,
+                                    "Code" : null
+                                  }, {
+                                    "Name" : null,
+                                    "Code" : null
+                                  } ]
+                                }
                               }
-                            }
+                            },
+                            "Rates" : {
+                              "Rate" : [ {
+                                "RateCategory" : "ST",
+                                "UOM" : "Hr",
+                                "BillRate" : "55.00",
+                                "PayRate" : "55.00"
+                              }, {
+                                "RateCategory" : "OT",
+                                "UOM" : "Hr",
+                                "BillRate" : "82.50",
+                                "PayRate" : "82.50"
+                              }, {
+                                "RateCategory" : "DT",
+                                "UOM" : "Hr",
+                                "BillRate" : "110.00",
+                                "PayRate" : "110.00"
+                              } ]
+                            },
+                            "CustomFields" : "\n\t\t\t"
                           }
-                        },
-                        "AdditionalAttachment": null
+                        }
                       }
                     }
                   }
@@ -397,4 +384,3 @@ data:
           }
         }     
       }
-    }
