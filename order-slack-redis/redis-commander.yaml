@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-commander
+  labels:
+    app: redis-commander
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-commander
+  template:
+    metadata:
+      labels:
+        app: redis-commander
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+        - image: rediscommander/redis-commander
+          imagePullPolicy: Always
+          name: redis-commander
+          ports:
+            - name: http
+              containerPort: 8081
+          resources:
+            limits:
+              memory: 100Mi
+            requests:
+              memory: 32Mi
+          env:
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: <your secret's name>
+                  key: HOST
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: <your secret's name>
+                  key: PORT
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: <your secret's name>
+                  key: REDIS_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-commander
+  labels:
+    app: redis-commander
+    service: redis-commander
+spec:
+  ports:
+    - name: http
+      port: 8081
+  selector:
+    app: redis-commander
+---
+apiVersion: gateway.kyma-project.io/v1alpha2
+kind: Api
+metadata:
+  labels:
+    app: redis-commander
+  name: redis-commander
+spec:
+  hostname: redis-commander
+  service:
+    name: redis-commander
+    port: 8081
