@@ -22,11 +22,16 @@ module.exports = { main: async function (event, context) {
     formData.append('directory', 'example-lambda');
     formData.append('public', myfile, {
         contentType: 'text/plain',
-        filename: 'file.text',
+        filename: 'file.txt',
     });
     
     console.log("----Sending----");
-    const resp = await axios.post('http://rafter-upload-service.kyma-system.svc.cluster.local/v1/upload', formData, { headers: formData.getHeaders() });
-    
-    return JSON.stringify(resp.data);
+    try{
+        const resp = await axios.post('http://rafter-upload-service.kyma-system.svc.cluster.local/v1/upload', formData, { headers: formData.getHeaders() });
+        return JSON.stringify(resp.data);
+    }catch(err){
+        console.error('Failure!');
+        console.error(err.response);
+    }
+
 }}
