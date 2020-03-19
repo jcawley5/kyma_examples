@@ -1,0 +1,136 @@
+<mvc:View controllerName="KymaEstimator.App" displayBlock="true" xmlns="sap.m" xmlns:mc="sap.suite.ui.microchart" xmlns:uxap="sap.uxap" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt">
+	<Shell>
+		<App id="app">
+			<Page id="intro" title="{i18n>appTitle}">
+				<uxap:ObjectPageLayout id="ObjectPageLayout" toggleHeaderOnTitleClick="false" showTitleInHeaderContent="false" headerContentPinnable="false" showEditHeaderButton="false">
+					<uxap:headerTitle>
+
+						<uxap:ObjectPageDynamicHeaderTitle>
+
+							<uxap:heading>
+								<FlexBox fitContainer="true" alignItems="Center">
+									<Avatar src="./images/kyma.jpeg" backgroundColor="Random" class="sapUiTinyMarginEnd" />
+									<l:VerticalLayout>
+										<Title text="{i18n>appTitle}" />
+										<Text text="{i18n>appDescription}" />
+									</l:VerticalLayout>
+
+								</FlexBox>
+							</uxap:heading>
+
+							<!-- <uxap:expandedContent>
+								<Text text="{i18n>appDescription}" />
+							</uxap:expandedContent>
+
+							<uxap:snappedContent>
+								<Text text="{i18n>appDescription}" />
+							</uxap:snappedContent> -->
+
+							<uxap:actions>
+								<OverflowToolbarButton icon="sap-icon://pull-down" text="{i18n>exportData}" type="Emphasized" tooltip="{i18n>exportData}" press="onDataExport" />
+								<OverflowToolbarButton icon="sap-icon://refresh" text="{i18n>refreshData}" type="Emphasized" tooltip="{i18n>refreshData}" press="onRefresh" />
+							</uxap:actions>
+						</uxap:ObjectPageDynamicHeaderTitle>
+
+					</uxap:headerTitle>
+					<uxap:headerContent class="sapSmallMarginTop">
+						<HBox alignItems="Center" wrap="Wrap" justifyContent="SpaceBetween">
+							<FlexBox width="35rem" height="15rem" alignItems="Start" justifyContent="SpaceBetween">
+								<items>
+									<mc:InteractiveDonutChart selectionChanged="onSelectionChanged" displayedSegments="5" selectionEnabled="true" segments="{rtoptions>/items}">
+										<mc:segments>
+											<mc:InteractiveDonutChartSegment label="{rtoptions>ConsUnits}" value="{rtoptions>ConsUnitsValue}" displayedValue="{rtoptions>ConsUnitsValue}" />
+										</mc:segments>
+									</mc:InteractiveDonutChart>
+								</items>
+							</FlexBox>
+							<FlexBox alignItems="End" justifyContent="End">
+								<items>
+									<GenericTile class="" header="{i18n>capacityUnits}" subheader="{i18n>totEstimated}" press="onPress">
+										<TileContent unit="{i18n>perMonth}">
+											<NumericContent value="{rtoptions>/ConsUnitsTotal}" withMargin="false" />
+										</TileContent>
+									</GenericTile>
+								</items>
+							</FlexBox>
+						</HBox>
+					</uxap:headerContent>
+					<uxap:sections>
+
+
+						<uxap:ObjectPageSection title="{i18n>runTime}">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection>
+									<uxap:blocks>
+
+										<Table id="runTimeTable" items="{rtoptions>/items}" headerText="{i18n>runTime}">
+											<infoToolbar>
+												<Toolbar>
+													<Label text="{i18n>unitTableDescription}" />
+												</Toolbar>
+											</infoToolbar>
+											<columns>
+												<Column hAlign="Begin">
+													<Text text="{i18n>name}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+													<Text text="{i18n>description}" />
+												</Column>
+												<Column minScreenWidth="Tablet" hAlign="Begin">
+													<Text text="{i18n>consumptionEstimate}" />
+												</Column>
+												<Column hAlign="End" demandPopin="true">
+													<Text text="{i18n>capacityUnits}" />
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem vAlign="Middle">
+													<cells>
+														<ObjectIdentifier title="{rtoptions>Name}" text="{rtoptions>Code}" />
+														<Text text="{rtoptions>Description}" />
+														<StepInput value="{rtoptions>ConsUnitsValue}" change="calCapcityUnits" description="{rtoptions>ConsUnits}" step="{rtoptions>ConsUnitsStep}" />
+														<Text text="{rtoptions>Capacity}" />
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+
+									</uxap:blocks>
+								</uxap:ObjectPageSubSection>
+							</uxap:subSections>
+						</uxap:ObjectPageSection>
+
+
+						<uxap:ObjectPageSection title="Details">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection>
+									<uxap:blocks>
+
+										<Table id="runTimeOptions" items="{rtdetails>/items}" headerText="{i18n>runTime}">
+											<columns>
+												<Column hAlign="Begin" demandPopin="true">
+													<Text text="{i18n>calDetails}" />
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem vAlign="Middle">
+													<cells>
+														<Text text="{rtdetails>Description}" />
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+
+									</uxap:blocks>
+								</uxap:ObjectPageSubSection>
+							</uxap:subSections>
+						</uxap:ObjectPageSection>
+
+
+					</uxap:sections>
+				</uxap:ObjectPageLayout>
+
+			</Page>
+		</App>
+	</Shell>
+</mvc:View>
