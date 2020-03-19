@@ -1,0 +1,31 @@
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: Bucket
+metadata:
+  name: webresources
+spec:
+  region: "us-east-1"
+  policy: readonly
+---
+apiVersion: rafter.kyma-project.io/v1beta1
+kind: Asset
+metadata:
+  name: images-markdown
+spec:
+  source:
+    url: https://github.com/jcawley5/kyma_examples/raw/master/rafter/Archive.zip
+    mode: package
+    metadataWebhookService:
+      - name: rafter-front-matter-service
+        namespace: kyma-system
+        endpoint: "/v1/extract"
+  bucketRef:
+    name: webresources
+#Use the metadataWebhookService to direct the file metadata to a service to consume and save the content.
+#get-rafter-metadata is a lambda which receives the metadata info
+
+# kubectl get bucket webresources -n <namespace>
+# kubectl get assets images-markdown -n <namespace>
+
+#https://storage.<cluster dn>/webresources-<id>/images-markdown/images/kyma.png
+
+# https://katacoda.com/rafter/scenarios/katacoda-tutorials
