@@ -1,12 +1,10 @@
-<mvc:View controllerName="KymaEstimator.App" displayBlock="true" xmlns="sap.m" xmlns:mc="sap.suite.ui.microchart" xmlns:uxap="sap.uxap" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt">
+<mvc:View controllerName="KymaEstimator.controller.App" displayBlock="true" xmlns="sap.m" xmlns:mc="sap.suite.ui.microchart" xmlns:uxap="sap.uxap" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt">
 	<Shell>
 		<App id="app">
 			<Page id="intro" title="{i18n>appTitle}">
 				<uxap:ObjectPageLayout id="ObjectPageLayout" toggleHeaderOnTitleClick="false" showTitleInHeaderContent="false" headerContentPinnable="false" showEditHeaderButton="false">
 					<uxap:headerTitle>
-
 						<uxap:ObjectPageDynamicHeaderTitle>
-
 							<uxap:heading>
 								<FlexBox fitContainer="true" alignItems="Center">
 									<Avatar src="./images/kyma.jpeg" backgroundColor="Random" class="sapUiTinyMarginEnd" />
@@ -14,7 +12,6 @@
 										<Title text="{i18n>appTitle}" />
 										<Text text="{i18n>appDescription}" />
 									</l:VerticalLayout>
-
 								</FlexBox>
 							</uxap:heading>
 
@@ -31,7 +28,6 @@
 								<OverflowToolbarButton icon="sap-icon://refresh" text="{i18n>refreshData}" type="Emphasized" tooltip="{i18n>refreshData}" press="onRefresh" />
 							</uxap:actions>
 						</uxap:ObjectPageDynamicHeaderTitle>
-
 					</uxap:headerTitle>
 					<uxap:headerContent class="sapSmallMarginTop">
 						<HBox alignItems="Center" wrap="Wrap" justifyContent="SpaceBetween">
@@ -56,8 +52,6 @@
 						</HBox>
 					</uxap:headerContent>
 					<uxap:sections>
-
-
 						<uxap:ObjectPageSection title="{i18n>runTime}">
 							<uxap:subSections>
 								<uxap:ObjectPageSubSection>
@@ -94,18 +88,14 @@
 												</ColumnListItem>
 											</items>
 										</Table>
-
 									</uxap:blocks>
 								</uxap:ObjectPageSubSection>
 							</uxap:subSections>
 						</uxap:ObjectPageSection>
-
-
 						<uxap:ObjectPageSection title="Details">
 							<uxap:subSections>
 								<uxap:ObjectPageSubSection>
 									<uxap:blocks>
-
 										<Table id="runTimeOptions" items="{rtdetails>/items}" headerText="{i18n>runTime}">
 											<columns>
 												<Column hAlign="Begin" demandPopin="true">
@@ -120,16 +110,12 @@
 												</ColumnListItem>
 											</items>
 										</Table>
-
 									</uxap:blocks>
 								</uxap:ObjectPageSubSection>
 							</uxap:subSections>
 						</uxap:ObjectPageSection>
-
-
 					</uxap:sections>
 				</uxap:ObjectPageLayout>
-
 			</Page>
 		</App>
 	</Shell>

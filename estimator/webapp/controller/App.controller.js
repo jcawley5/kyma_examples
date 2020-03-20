@@ -10,7 +10,7 @@ sap.ui.define(
   function(Controller, MessageToast, JSONModel, ResourceModel, Export, ExportTypeCSV) {
     "use strict";
 
-    return Controller.extend("KymaEstimator.App", {
+    return Controller.extend("KymaEstimator.controller.App", {
       onPress: function() {
         MessageToast.show("Hello UI5!");
         this.byId("app").to(this.byId("intro"));
