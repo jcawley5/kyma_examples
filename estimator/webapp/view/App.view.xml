@@ -82,7 +82,7 @@
 													<cells>
 														<ObjectIdentifier title="{rtoptions>Name}" text="{rtoptions>Code}" />
 														<Text text="{rtoptions>Description}" />
-														<StepInput value="{rtoptions>ConsUnitsValue}" change="calCapcityUnits" description="{rtoptions>ConsUnits}" step="{rtoptions>ConsUnitsStep}" />
+														<StepInput value="{rtoptions>ConsUnitsValue}" change="calCapcityUnits" description="{rtoptions>ConsUnits}" step="{rtoptions>ConsUnitsStep}" min="{rtoptions>ConsUnitsMin}" max="{rtoptions>ConsUnitsMax}" />
 														<Text text="{rtoptions>Capacity}" />
 													</cells>
 												</ColumnListItem>
