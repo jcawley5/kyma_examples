@@ -1,42 +1,48 @@
 spec:
   gateways:
-  - kyma-gateway.kyma-system.svc.cluster.local
+    - kyma-gateway.kyma-system.svc.cluster.local
   hosts:
-  - canary-deployment-example.<cluster dns>
+    - canary-deployment-example.<cluster dns>
   http:
-  - match:
-    - headers:
-        x-app-version:
-          exact: v1
-    route:
-    - destination:
-        host: canary-deployment-example.canary.svc.cluster.local
-        port:
-          number: 80
-        subset: v1
-    corsPolicy:
-      allowHeaders:
-      - '*'
-      allowMethods:
-      - GET
-      - POST
-      - PUT
-      - DELETE
-      allowOrigin:
-      - '*'
-  - route:
-    - destination:
-        host: canary-deployment-example.canary.svc.cluster.local
-        port:
-          number: 80
-        subset: v2
-    corsPolicy:
-      allowHeaders:
-      - '*'
-      allowMethods:
-      - GET
-      - POST
-      - PUT
-      - DELETE
-      allowOrigin:
-      - '*'
+    - match:
+        - headers:
+            x-app-version:
+              exact: v1
+      route:
+        - destination:
+            host: ory-oathkeeper-proxy.kyma-system.svc.cluster.local
+            port:
+              number: 4455
+          weight: 0
+        - destination:
+            host: canary-deployment-example.canary.svc.cluster.local
+            port:
+              number: 80
+            subset: v1
+          weight: 100
+      corsPolicy:
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+        allowOrigin:
+          - "*"
+    - route:
+        - destination:
+            host: canary-deployment-example.canary.svc.cluster.local
+            port:
+              number: 80
+            subset: v2
+      corsPolicy:
+        allowHeaders:
+          - "*"
+        allowMethods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+        allowOrigin:
+          - "*"
