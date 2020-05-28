@@ -6,12 +6,12 @@ metadata:
     app: canary-deployment-example
 spec:
   ports:
-  - name: http
-    port: 80
+    - name: http
+      port: 80
   selector:
     app: canary-deployment-example
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: canary-deployment-example-v1
@@ -31,22 +31,28 @@ spec:
         version: v1
     spec:
       containers:
-      # replace the repository URL with your own repository (e.g. {DockerID}/http-db-service:0.0.x for Docker Hub).
-      - image: jcawley5/nginx-hello
-        imagePullPolicy: Always
-        name: canary-deployment-example
-        ports:
-        - name: http
-          containerPort: 80
+        # replace the repository URL with your own repository (e.g. {DockerID}/http-db-service:0.0.x for Docker Hub).
+        - image: jcawley5/nginx-hello
+          imagePullPolicy: Always
+          name: canary-deployment-example
+          ports:
+            - name: http
+              containerPort: 80
 ---
-apiVersion: gateway.kyma-project.io/v1alpha2
-kind: Api
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
 metadata:
-  labels:
-    app: canary-deployment-example
   name: canary-deployment-example
 spec:
-  hostname: canary-deployment-example
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      accessStrategies:
+        - config: {}
+          handler: noop
+      methods:
+        - GET
   service:
+    host: canary-deployment-example
     name: canary-deployment-example
     port: 80
