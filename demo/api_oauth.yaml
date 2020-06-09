@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-credential
+type: Opaque
+data:
+  client_id: YzUyMDMyYTAtODc4NS00ZGI3LTllNTEtMjdlMDJjZDk0MzU5
+  client_secret: d2VsY29tZTEyMzQ=
+  # c52032a0-8785-4db7-9e51-27e02cd94359:welcome1234
+---
+apiVersion: hydra.ory.sh/v1alpha1
+kind: OAuth2Client
+metadata:
+  name: api-credential
+spec:
+  grantTypes:
+    - "client_credentials"
+  scope: "read write"
+  secretName: api-credential
