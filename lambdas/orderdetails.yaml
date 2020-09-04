@@ -1,0 +1,20 @@
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: Function
+metadata:
+  name: order-details-api
+spec:
+  deps: "{ \n  \"name\": \"order-details-api\",\n  \"version\": \"1.0.0\",\n  \"dependencies\":
+    {\n        \"axios\": \"^0.18.0\"\n  }\n}"
+  env:
+    - name: SITE
+      value: /electronics
+  source:
+    "const axios = require('axios');\nconst GATEWAY_URL = process.env['CC_OCC_COMMERCE_WEBSERVICES_V2_A30948FA_3F68_47BB_BA8F_8F015944682A_GATEWAY_URL'];\n\nmodule.exports
+    = { \n  \n  main: async function (event, context) {\n    const {response, request}
+    = event.extensions;\n    const orderNum = request.query.orderNum;\n    if(orderNum){\n
+    \     const orderResult = await getOrderDetails(orderNum);\n      response.setHeader(\"Content-Type\",
+    \"application/json\");\n      return orderResult;\n    }else{\n      return \"no
+    orderNum was received ....\";\n    }\n  }\n}\nasync function getOrderDetails(code)
+    {  \n  const ordersUrl = GATEWAY_URL + process.env.SITE + \"/orders/\" + code;\n
+    \ console.log(\"ordersUrl: \", ordersUrl);\n  const response = await axios.get(ordersUrl);\n
+    \ console.log(JSON.stringify(response.data,null, 2));\n  return response.data;\n}"
