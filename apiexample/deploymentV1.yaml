@@ -24,7 +24,7 @@ data:
     "version": "1"
     }
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: apiexample-ui-v1
@@ -72,14 +72,25 @@ spec:
         configMap:
           name: apiexample-config-v1
 ---
-apiVersion: gateway.kyma-project.io/v1alpha2
-kind: Api
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
 metadata:
-  name: apiexample-ui-api
-  labels:
-    app: apiexample-ui
+  name: apiexample-ui
 spec:
-  hostname: apiexample-ui
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      accessStrategies:
+        - config: {}
+          handler: noop
+      methods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - HEAD
+        - PATCH
   service:
+    host: apiexample-ui
     name: apiexample-ui-service
     port: 3000

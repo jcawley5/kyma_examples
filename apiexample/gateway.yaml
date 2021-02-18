@@ -1,0 +1,33 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: my-gateway
+spec:
+  selector:
+    app: istio-ingressgateway
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 31400
+      name: mongo
+      protocol: TCP
+    hosts:
+    - 'mongodb.<cluster>.kyma.shoot.live.k8s-hana.ondemand.com'
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: apiexample-db-service-external
+spec:
+  hosts:
+  - mongodb.<cluster>.kyma.shoot.live.k8s-hana.ondemand.com 
+  gateways:
+  - my-gateway.test.svc.cluster.local
+  tcp:
+  - match:
+    - port: 31400
+    route:
+    - destination:
+        host: apiexample-db-service.test.svc.cluster.local
+        port:
+          number: 27017
