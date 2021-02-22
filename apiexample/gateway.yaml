@@ -28,6 +28,6 @@ spec:
     - port: 31400
     route:
     - destination:
-        host: apiexample-db-service.test.svc.cluster.local
+        host: apiexample-db-service.<namespace>.svc.cluster.local
         port:
           number: 27017
