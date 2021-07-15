@@ -1,0 +1,60 @@
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: Function
+metadata:
+  name: redis-cache-token
+spec:
+  buildResources:
+    limits:
+      cpu: 1700m
+      memory: 1700Mi
+    requests:
+      cpu: 1100m
+      memory: 1100Mi
+  deps:
+    "{ \n  \"name\": \"redis-cache-token\",\n  \"version\": \"1.0.0\",\n  \"dependencies\":
+    {\n      \"axios\": \"^0.18.1\",\n      \"redis\":  \"^3.0.2\",\n      \"handy-redis\":
+    \"^2.0.0\",\n      \"simple-oauth2\": \"^4.2.0\"\n  }\n}"
+  env:
+    - name: client_secret
+      value:
+    - name: client_id
+      value:
+    - name: ET_OAUTH_URL
+      value:
+    - name: REDIS_HOST
+      value:
+    - name: REDIS_PASSWORD
+      value:
+    - name: REDIS_PORT
+      value: "6379"
+  maxReplicas: 5
+  minReplicas: 1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  runtime: nodejs14
+  source:
+    "const axios = require(\"axios\");\nconst hredis = require(\"handy-redis\");\nconst
+    { ClientCredentials } = require(\"simple-oauth2\")\n\nconst TOKEN_NAME = \"et_oauth_token\";\nconst
+    EXPIRES_IN_OFFSET = 500;\n\nconst client = hredis.createNodeRedisClient({\n  port:
+    \ process.env[\"REDIS_PORT\"],\n  host: process.env[\"REDIS_HOST\"],\n  password:
+    process.env[\"REDIS_PASSWORD\"]\n});\n\nconst config = {\n  client: {\n    id:
+    process.env.client_id,\n    secret: process.env.client_secret\n  },\n  auth: {\n
+    \   tokenHost: process.env.ET_OAUTH_URL\n  },\n  options:{\n    credentialsEncodingMode:
+    \"loose\"\n  }\n};\n\nmodule.exports = { \n  main: async function (event, context)
+    {\n    var token = await getCachedToken();\n    if ( token != undefined ){\n      console.log(\"returning
+    cached token...\");\n      return token;\n    }else{\n      console.log(\"returning
+    new token...\");\n      return await getNewToken()\n    }\n  }\n}\n\nasync function
+    getCachedToken(){    \n  console.log(\"checking for cached token\");\n  const
+    token = await client.get(TOKEN_NAME);\n  return token ? JSON.parse(token) : undefined;\n}\n\n\nasync
+    function getNewToken() {\n  var resp = \"\";\n  const client = new ClientCredentials(config);\n
+    \ try {\n    resp = await client.getToken({});\n    console.log(\"get new token:
+    \", resp.token);\n    await cacheToken(resp.token);\n  } catch (error) {\n    throw
+    new Error(error);\n  }\n  return resp.token;\n}\n\nasync function cacheToken(token){\n
+    \   console.log(\"Caching token to redis....\");\n    await client.set(TOKEN_NAME,
+    JSON.stringify(token));\n    return client.expire(TOKEN_NAME, token.expires_in
+    - EXPIRES_IN_OFFSET);\n}"
