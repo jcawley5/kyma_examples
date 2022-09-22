@@ -1,0 +1,38 @@
+# nc -u ipaddress 5005
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udp-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udp-server
+  template:
+    metadata:
+      labels:
+        app: udp-server
+      annotations:
+        sidecar.istio.io/inject: 'false'
+    spec:
+      containers:
+        - name: udp-server
+          image: mendhak/udp-listener
+          ports:
+            - containerPort: 5005
+              protocol: UDP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: udp-server-service
+  labels:
+    app: udp-server
+spec:
+  ports:
+    - protocol: UDP
+      port: 5005
+      targetPort: 5005
+  selector:
+    app: udp-server
+  type: LoadBalancer
