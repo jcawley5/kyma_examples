@@ -12,7 +12,7 @@
 # Your sftp server should now be fully set up and begin to start up.
 # You can check whether your sftp server has finished starting by running `kubectl get pods -n sftp`.
 # Once it shows status `RUNNING` for all pods your server should be ready.
-# You can now connect to it using `sftp -P 23 myUser@localhost`.
+# You can now connect to it using `sftp -P 8001 myUser@localhost`.
 # Note that you can't upload files to the user directory directly, so you have to switch to one of the directories specified below.
 apiVersion: v1
 kind: Namespace
